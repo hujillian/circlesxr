@@ -35,12 +35,19 @@
         <!-- Glezova @ https://sketchfab.com/3d-models/stylized-bridge-dea55cb580e44d458e84d4455eda5de8 -->
         <!-- Sereda @ https://sketchfab.com/3d-models/stylized-stones-minipack-719d8ee393db4b218ace19ce9124918d -->
         <!-- Satendra Saraswat @ https://sketchfab.com/3d-models/stylized-hand-painted-tree-f4e3fe276aca48d09d312b6dae100bce -->
-        <a-asset-item id="island_1_gltf"      src="assets/models/island_1/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <!-- <a-asset-item id="island_1_gltf"      src="assets/models/island_1/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="island_2_gltf"      src="assets/models/island_2/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="island_3_gltf"      src="assets/models/island_3/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="island_3_gltf"      src="assets/models/island_3/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
         <!-- <a-asset-item id="island_leaves_gltf" src="assets/models/island_leaves/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
 
-        <a-asset-item id="observatory_gltf"      src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="engine_gltf" src="assets/models/spaceship/engine.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobby_gltf" src="assets/models/spaceship/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="wingL_gltf" src="assets/models/spaceship/wingL.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="wingR_gltf" src="assets/models/spaceship/wingR.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- <a-asset-item id="lobby_gltf"      src="assets/models/spaceship/lobby.obj" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lobby_mtl"      src="assets/models/spaceship/lobby.mtl" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
@@ -50,8 +57,11 @@
 
         <!-- loading navmesh. Following instructiosn from here: https://github.com/n5ro/aframe-extras/tree/master/src/pathfinding -->
         <!-- <a-asset-item id="navmesh_gltf" src="assets/models/navmesh.glb" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
-        <a-asset-item id="navmesh_gltf" src="assets/models/nav_meshes/observatoryfloor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-
+        <a-asset-item id="navmesh1_gltf" src="assets/models/spaceship/nav_meshes/lobbyfloor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="navmesh2_gltf" src="assets/models/spaceship/nav_meshes/lobby_observatory_control_floor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="navmesh3_gltf" src="assets/models/spaceship/nav_meshes/lobby_observatory_control_dining_floor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="navmesh4_gltf" src="assets/models/spaceship/nav_meshes/lobby_observatory_control_dining_bay_floor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        
         <!-- <a-asset-item id="observatory_model" src="\assets\observatory.obj"></a-asset-item>
         <a-asset-item id="observatory_mat" src="\assets\observatory.mtl"></a-asset-item> -->
         <!-- Circles' built-in assets [REQUIRED] -->
@@ -108,17 +118,14 @@
                                   description_back:[~240-280 chars] This is the back/secondary text that will display when you rotate the description bubble.;
                                   label_text:Gem;"></a-entity> -->
 
-    <a-entity id="observatory"
-    position="0 0 0" rotation="0 0 0" scale="1 1 1"
-    gltf-model="#observatory_gltf"
-    circles-sphere-env-map="src:#skyMap"
-    circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-                      label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
-                      title:[~20-25 chars] Title Front;
-                      description:[~240-280 chars]  This is the FRONT text that will display when an object is picked up. Adjust scale size and text rotation properties to make more visible.;
-                      title_back:[~20-25 chars] Title Back;
-                      description_back:[~240-280 chars] This is the back/secondary text that will display when you rotate the description bubble.;
-                      label_text:Observatory;"></a-entity>
+    <a-entity id="controlRoom" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="departureBay" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#departureBay_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="diningHall" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="engine" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="lobby" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="observatory" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="wingL" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="wingR" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
 
     <!-- <a-entity obj-model="obj: #observatory_model; mtl: #observatory_mat" position = "0 0.2 0"></a-entity> -->
       <!-- <a-entity id="Artefact-Sword"
@@ -169,7 +176,7 @@
         <a-entity light="type:point; color:rgb(242,151,39); intensity:5.0;"></a-entity>
       </a-entity> -->
 
-      <a-entity id="navmesh" gltf-model="#navmesh_gltf" visible='true' nav-mesh></a-entity>
+      <a-entity id="navmesh4" gltf-model="#navmesh4_gltf" visible='false' nav-mesh></a-entity>
 
       <!-- sky and lights -->
       <a-entity id="sunlight" position="0 20 0" rotation="40 0 0" 
