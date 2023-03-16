@@ -42,6 +42,7 @@
         <a-asset-item id="island_3_gltf"      src="assets/models/island_3/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
         <!-- <a-asset-item id="island_leaves_gltf" src="assets/models/island_leaves/scene.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
 
+        <!-- Rooms-->
         <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -50,6 +51,16 @@
         <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingL_gltf" src="assets/models/spaceship/wingL.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingR_gltf" src="assets/models/spaceship/wingR.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        
+        <!-- Doors -->
+        <a-asset-item id="diningHall_L_back_gltf" src="assets/models/spaceship/doors/diningHall_L_back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="diningHall_L_front_gltf" src="assets/models/spaceship/doors/diningHall_L_front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="diningHall_R_back_gltf" src="assets/models/spaceship/doors/diningHall_R_back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="diningHall_R_front_gltf" src="assets/models/spaceship/doors/diningHall_R_front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobbydoor_L_back_gltf" src="assets/models/spaceship/doors/lobbydoor_L_back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobbydoor_L_front_gltf" src="assets/models/spaceship/doors/lobbydoor_L_front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobbydoor_R_back_gltf" src="assets/models/spaceship/doors/lobbydoor_R_back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobbydoor_R_front_gltf" src="assets/models/spaceship/doors/lobbydoor_R_front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- <a-asset-item id="lobby_gltf"      src="assets/models/spaceship/lobby.obj" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lobby_mtl"      src="assets/models/spaceship/lobby.mtl" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
@@ -120,6 +131,7 @@
                                   description_back:[~240-280 chars] This is the back/secondary text that will display when you rotate the description bubble.;
                                   label_text:Gem;"></a-entity> -->
 
+    <!-- Rooms -->
     <!-- I removed  circles-sphere-env-map="src:#skyMap" from the models because it made them too bright -->
     <a-entity id="controlRoom" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf"></a-entity>
     <a-entity id="departureBay" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#departureBay_gltf"></a-entity>
@@ -129,6 +141,16 @@
     <a-entity id="observatory" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf"></a-entity>
     <a-entity id="wingL" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf"></a-entity>
     <a-entity id="wingR" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf"></a-entity>
+
+    <!-- Doors -->
+    <a-entity id="diningHall_L_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_L_back_gltf"></a-entity>
+    <a-entity id="diningHall_L_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_L_front_gltf"></a-entity>
+    <a-entity id="diningHall_R_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_R_back_gltf"></a-entity>
+    <a-entity id="diningHall_R_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_R_front_gltf"></a-entity>
+    <a-entity id="lobbydoor_L_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_L_back_gltf"></a-entity>
+    <a-entity id="lobbydoor_L_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_L_front_gltf"></a-entity>
+    <a-entity id="lobbydoor_R_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_R_back_gltf"></a-entity>
+    <a-entity id="lobbydoor_R_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_R_front_gltf"></a-entity>
 
     <!-- <a-entity obj-model="obj: #observatory_model; mtl: #observatory_mat" position = "0 0.2 0"></a-entity> -->
       <!-- <a-entity id="Artefact-Sword"
@@ -184,7 +206,11 @@
       <!-- sky and lights -->
       <a-entity id="sunlight" position="0 20 0" rotation="40 0 0" 
                 light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity>
-      <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity>
+      <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
+
+      <a-entity id="lobby_light" position="2.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
+      <a-entity id="dininghall_light" position="-3.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
+      <a-entity id="observatory_light" position="0 -0.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
 
       <!-- <a-entity id='skyBox'
                 rotation='0 200 0'
