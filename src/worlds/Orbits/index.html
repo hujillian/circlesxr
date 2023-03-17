@@ -48,7 +48,7 @@
         <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="engine_gltf" src="assets/models/spaceship/engine.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lobby_gltf" src="assets/models/spaceship/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory_2.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingL_gltf" src="assets/models/spaceship/wingL.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingR_gltf" src="assets/models/spaceship/wingR.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="controlDesk_gltf" src="assets/models/spaceship/controldesk.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -65,7 +65,7 @@
         <a-asset-item id="lobbydoor_R_front_gltf" src="assets/models/spaceship/doors/lobbydoor_R_front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- James Webb telescope -->
-        <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope_2.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- Interior objects -->
         <a-asset-item id="fiveDollar_gltf" src="assets/models/interior_objects/fivedollarbill.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -96,6 +96,7 @@
       <!-- just creating an entity that connects many elements together -->
       <a-entity id="game_manager" lights-interactive></a-entity>
 
+      <a-entity id="ambient" audio-manager></a-entity>
       <!-- island 1, with some spawnpoints -->
       <!-- <a-entity circles-checkpoint circles-spawnpoint position="-9.404 0.592 9.588"></a-entity>
       <a-entity circles-checkpoint circles-spawnpoint position="-9.751 0.546 7.433"></a-entity>
@@ -166,7 +167,7 @@
     <!-- Buttons to open doors -->
     <!-- Doors between lobby and control room -->
     <a-entity   id="button_1"
-                open-doors
+                open-doors="id:lobbydoor_L_front"
                 circles-button="pedastal_color:rgb(200, 200, 200);" 
                 position="5.9 2.5 -4" rotation="0 0 90" scale="0.8 0.8 0.8">
     </a-entity>
