@@ -13,7 +13,6 @@
     <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
-
     <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
     <circles-start-ui/>
 
@@ -70,7 +69,7 @@
         
         <!-- Interior objects -->
         <a-asset-item id="fiveDollar_gltf" src="assets/models/interior_objects/fivedollarbill.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        
+        <img id="fiveDollar_jpg" src="assets/models/interior_objects/5_back.jpg">
 
         <!-- <a-asset-item id="lobby_gltf"      src="assets/models/spaceship/lobby.obj" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lobby_mtl"      src="assets/models/spaceship/lobby.mtl" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
@@ -130,7 +129,7 @@
 
       <!-- example "artefact" -->
       <!-- <a-entity id="Artefact-Gem"
-                position="1.963 -8.241 2.339" rotation="0 0 0" scale="1 1 1"
+                position="1.963 2 2.339" rotation="0 0 0" scale="1 1 1"
                 geometry="primitive:octahedron; radius:0.5;"
                 material="color:rgb(255, 100, 20); roughness:0.2; metalness:0.8; sphericalEnvMap:#skyMap;"
                 circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
@@ -151,7 +150,7 @@
     <a-entity id="observatory" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf"></a-entity>
     <a-entity id="wingL" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf"></a-entity>
     <a-entity id="wingR" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf"></a-entity>
-    <a-entity id="controlDesk" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf"></a-entity>
+    <a-entity id="controlDesk" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf" go-outside></a-entity>
     <a-entity id="floor" position="0 0.1 0" rotation="0 0 0" scale="0.98 1 0.94" gltf-model="#floor_gltf"></a-entity>
 
     <!-- Doors -->
@@ -187,6 +186,20 @@
                 circles-button="pedastal_color:rgb(200, 200, 200);" 
                 position="-5.9 2.5 -6" rotation="0 180 90" scale="0.8 0.8 0.8">
     </a-entity>
+    <!-- Doors between dining hall and departure bay-->
+    <a-entity   id="button_5"
+                open-doors-3
+                circles-button="pedastal_color:rgb(200, 200, 200);" 
+                position="-5.9 2.5 4" rotation="0 180 90" scale="0.8 0.8 0.8">
+    </a-entity>
+    <a-entity   id="button_6"
+                open-doors-3
+                circles-button="pedastal_color:rgb(200, 200, 200);" 
+                position="-5.9 2.5 6" rotation="0 180 90" scale="0.8 0.8 0.8">
+    </a-entity>
+
+    <!-- <a href="outside.html"></a><a-entity geometry="primitive: box; width:1;height:1;depth:1;" material="" id="box" position="-3.5 1.5 8">
+    </a-entity></a> -->
 
     <!-- <a-entity id="universal_button">
       <a-entity open-doors class="button interactive" position="0 0.6 0" geometry="primitive:cylinder; radius:0.15; height:0.2;" material="color:rgb(255, 100, 100)"
@@ -197,12 +210,21 @@
     </a-entity> -->
 
     <!-- Interior objects -->
-    <a-entity id="fiveDollar" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#fiveDollar_gltf"></a-entity>
+    <!-- Description credit: https://www.bankofcanada.ca/banknotes/bank-note-series/frontiers/5-polymer-note/ -->
+    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 1.5 -10" rotation="90 0 0"
+              circles-artefact="inspectScale:1 1 1; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
+              label_offset:0.0 0.3 0.0; label_visible:true; arrow_position:down;
+              title:Canadian $5 Bill;
+              description:On the Canadian $5 bill there is the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on board the International Space Station;
+              title_back:Canadian $5 Bill;
+              description_back:On the Canadian $5 bill there is the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on board the International Space Station;
+              label_text:$5;">
+    </a-entity>
 
     <!-- James Webb telescope -->
     <a-entity id="jamesWebb" position="30 0 -47" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf"></a-entity>
 
-
+    
     <!-- <a-entity obj-model="obj: #observatory_model; mtl: #observatory_mat" position = "0 0.2 0"></a-entity> -->
       <!-- <a-entity id="Artefact-Sword"
                 position="-13.171 0.899 9.197" rotation="-18.718 42.756 2.641" scale="1 1 1"
@@ -273,10 +295,6 @@
       <a-entity environment="preset:starry;"></a-entity>
     </a-scene>
 
-    <script>
-      document.querySelector('#Player1Cam').setAttribute.position = "0 3 0";
-      console.log("camera pos: ", document.querySelector('#Player1Cam').getAttribute.position);
-    </script>
     <!-- Circles' end scripts [REQUIRED] -->
     <circles-end-scripts/>
     
