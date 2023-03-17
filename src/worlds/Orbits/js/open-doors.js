@@ -23,13 +23,15 @@ const moveDoors = function(door, doorPos, changeInY){
 }
 
 AFRAME.registerComponent('open-doors', {
-    schema: {},
+    schema: {
+        id:{type:'string'},
+    },
 
     init() {
 
         const CONTEXT_AF = this; 
 
-        CONTEXT_AF.leftDoor = document.querySelector('#lobbydoor_L_front');
+        CONTEXT_AF.leftDoor = document.querySelector("#" + CONTEXT_AF.data.id);
         CONTEXT_AF.leftDoor.pos = CONTEXT_AF.leftDoor.getAttribute('position');
 
         CONTEXT_AF.rightDoor = document.querySelector('#lobbydoor_R_front');
