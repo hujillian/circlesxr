@@ -11,7 +11,7 @@ AFRAME.registerComponent('circles-spawn-at-random-checkpoint', {
 
     if (checkpoints.length === 0) {
       console.warn('CIRCLES: no designated \'circles-spawnpoint\' in scene. Will default to origin[0, 0, 0]');
-      CONTEXT_AF.el.setAttribute('position',{x:0.0, y:0.0, z:0.0});
+      CONTEXT_AF.el.setAttribute('position',{x:0.0, y:1.0, z:0.0});
       return;
     }
 
