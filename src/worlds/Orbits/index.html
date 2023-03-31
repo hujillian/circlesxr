@@ -25,7 +25,7 @@
         </script>
         <!-- add your assets here. Note that you can use relative links or absolute paths to your world -->
         <!-- credit: HDRMaps @ https://hdrmaps.com/above-the-clouds/ -->
-        <img id='skyMap' src='assets/textures/086_hdrmaps_com_free_above_clouds.jpg' crossorigin="anonymous">
+        <img id='skyMap' src='assets/textures/086_hdrmaps_com_free_above_clouds_lowres.jpg' crossorigin="anonymous">
         <!-- credit: ESA - https://sci.esa.int/web/gaia/-/60196-gaia-s-sky-in-colour-equirectangular-projection -->
         <img id='space_png' src='assets/textures/space.png' crossorigin="anonymous">
         <!-- credit: Masakazu Matsumoto - https://www.flickr.com/photos/vitroids/3033329561/ -->
@@ -92,7 +92,8 @@
       <!-- Checkpoints -->
       <a-entity circles-checkpoint position="3.17 0.145 -0.13"></a-entity> <!-- lobby -->
       <a-entity circles-checkpoint position="0 0.145 -8"></a-entity> <!-- control room -->
-      <a-entity circles-checkpoint position="0 0.145 -16"></a-entity> <!-- observatory -->
+      <a-entity circles-checkpoint position="3.17 0.145 -15"></a-entity> <!-- observatory -->
+      <a-entity circles-checkpoint position="0 0.145 -19"></a-entity> <!-- observatory -->
       <a-entity circles-checkpoint position="-3.17 0.145 -0.13"></a-entity> <!-- dining hall -->
       <a-entity circles-checkpoint position="0 0.145 8"></a-entity> <!-- departure bay -->
 
@@ -217,7 +218,7 @@
 
     <a-entity id="helmet" position="0 2 11.4" rotation="0 0 0" scale="1 1 1" gltf-model="#helmet_gltf"
               circles-sphere-env-map="src:#skyMap"
-              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:0.0 0.0 0;
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:0.0 180.0 0;
               label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:Helmet;
               description:You will need to wear a helmet and space suit on your space walk;
@@ -232,6 +233,7 @@
               circles-sphere-env-map="src:#skyMap"
               circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:15 -20 0;
               label_offset:0.0 -0.7 0.0; arrow_position:up; descriptionLookAt:true;
+              description_offset: 0.0 -0.7 0.0;
               title:Camera;
               description:This is an Imax camera;
               title_back:Imax Camera;
