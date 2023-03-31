@@ -5,6 +5,7 @@ AFRAME.registerComponent('start-game', {
     init(){
 
         console.log("start game init");
+        // this is a-scene
         const CONTEXT_AF = this; 
         
         // Variables to tell if the doors are open or not
@@ -35,6 +36,45 @@ AFRAME.registerComponent('start-game', {
 
         // Nav meshes - switching them is not working yet
         CONTEXT_AF.navMesh = document.querySelector('#nav-mesh');
+        console.log("old nav mesh: ", CONTEXT_AF.navMesh);
+
+        // REMOVE NAV MESH ATTRIBUTE
+        // CONTEXT_AF.navMesh.removeAttribute('nav-mesh');
+        // console.log("removed attribute: ", CONTEXT_AF.navMesh);
+        // CONTEXT_AF.navMesh.removeAttribute('gltf-model');
+        // CONTEXT_AF.navMesh.setAttribute('gltf-model', '#navmesh2_gltf');
+        // console.log("new gltf: ", CONTEXT_AF.navMesh);
+        // console.log("new gltf model value: ", CONTEXT_AF.navMesh.getAttribute('gltf-model'));
+        // CONTEXT_AF.navMesh.setAttribute('nav-mesh', '');
+
+        // console.log("new nav mesh in doc: ", document.querySelector('#nav-mesh'));
+
+
+
+
+        // DELETE nav mesh
+        //CONTEXT_AF.navMesh.parentNode.removeChild(CONTEXT_AF.navMesh);
+
+        // new nav mesh entity
+        //<a-entity id="nav-mesh" gltf-model="#navmesh1_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
+        // let newNavMesh = document.createElement('a-entity');
+        // newNavMesh.setAttribute('id', "nav-mesh");
+        // newNavMesh.setAttribute('gltf-model', "#navmesh3_gltf");
+        // newNavMesh.setAttribute('visible', "false");
+        // newNavMesh.setAttribute('position', "0 1 0");
+        // newNavMesh.setAttribute('nav-mesh', '');
+
+        // CONTEXT_AF.el.appendChild(newNavMesh);
+
+        // console.log("new nav mesh: ", newNavMesh);
+
+        
+
+
+
+        // document.querySelector('#nav-mesh').setAttribute('gltf-model', '#navmesh2_gltf');
+        // console.log("nav mesh from doc: ", document.querySelector('#nav-mesh'));
+        // console.log("nav mesh from doc in context: ", CONTEXT_AF.navMesh);
 
         // Listen for doors opening
         CONTEXT_AF.el.addEventListener('doorOpened', function(event){
@@ -44,8 +84,12 @@ AFRAME.registerComponent('start-game', {
                 CONTEXT_AF.button1.components['open-doors'].isOpen = true;
                 CONTEXT_AF.button2.components['open-doors'].isOpen = true;
                 // Switch nav mesh
-                CONTEXT_AF.navMesh.setAttribute('gltf-model', '#navmesh2_gltf');
-                console.log("nav mesh: ", CONTEXT_AF.navMesh.getAttribute('gltf-model'));
+                // console.log("nav mesh: ", CONTEXT_AF.navMesh);
+                // CONTEXT_AF.navMesh.setAttribute('gltf-model', '#navmesh2_gltf');
+                // CONTEXT_AF.navMesh.removeAttribute('nav-mesh');
+                // console.log("nav mesh: ", CONTEXT_AF.navMesh);
+                // CONTEXT_AF.navMesh.setAttribute('nav-mesh');
+                // console.log("nav mesh: ", CONTEXT_AF.navMesh);
             }
             else if(event.detail.value == CONTEXT_AF.door2){
                 // Set isOpen to true
