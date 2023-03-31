@@ -26,6 +26,10 @@
         <!-- add your assets here. Note that you can use relative links or absolute paths to your world -->
         <!-- credit: HDRMaps @ https://hdrmaps.com/above-the-clouds/ -->
         <img id='skyMap' src='assets/textures/086_hdrmaps_com_free_above_clouds.jpg' crossorigin="anonymous">
+        <!-- credit: ESA - https://sci.esa.int/web/gaia/-/60196-gaia-s-sky-in-colour-equirectangular-projection -->
+        <img id='space_png' src='assets/textures/space.png' crossorigin="anonymous">
+        <!-- credit: Masakazu Matsumoto - https://www.flickr.com/photos/vitroids/3033329561/ -->
+        <img id='earth_jpg' src='assets/textures/earth.jpg' crossorigin="anonymous">
 
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
         <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
@@ -140,7 +144,7 @@
     <a-entity id="controlRoom" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     <a-entity id="departureBay" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#departureBay_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     <a-entity id="diningHall" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
-    <a-entity id="engine" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="engine" position="0 0 1" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     <a-entity id="lobby" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     <a-entity id="observatory" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#skyMap"></a-entity> <!-- circles-material-override="src:#observatory_png"-->
     <a-entity id="wingL" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
@@ -149,24 +153,13 @@
     <a-entity id="floor" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf"></a-entity>
 
     <!-- Doors -->
-    <!-- <a-entity id="diningHall_L_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_L_back_gltf"></a-entity>
-    <a-entity id="diningHall_L_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_L_front_gltf"></a-entity>
-    <a-entity id="diningHall_R_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_R_back_gltf"></a-entity>
-    <a-entity id="diningHall_R_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_R_front_gltf"></a-entity>
-    <a-entity id="lobbydoor_L_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_L_back_gltf"></a-entity>
-    <a-entity id="lobbydoor_L_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_L_front_gltf"></a-entity>
-    <a-entity id="lobbydoor_R_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_R_back_gltf"></a-entity>
-    <a-entity id="lobbydoor_R_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobbydoor_R_front_gltf"></a-entity> -->
     <a-entity id="diningHall_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf"></a-entity>
     <a-entity id="diningHall_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf"></a-entity>
     <a-entity id="lobby_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf"></a-entity>
     <a-entity id="lobby_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf"></a-entity>
     
-
-
-
     <!-- Portal -->
-    <a-entity id="portal-outside" position="-4 2.5 8" circles-portal="img_src:#observatory_png; title_text:Go Outside; link_url:/w/Outside"></a-entity>
+    <a-entity id="portal-outside" position="-4 2.5 8" circles-portal="img_src:#earth_jpg; title_text:Go Outside; link_url:/w/Outside"></a-entity>
     
 
     <!-- Buttons to open doors -->
@@ -211,7 +204,7 @@
 
     <!-- Interior objects -->
     <!-- Description credit: https://www.bankofcanada.ca/banknotes/bank-note-series/frontiers/5-polymer-note/ -->
-    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 1.5 -10" rotation="90 0 0"
+    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 2 -10" rotation="90 0 0"
               circles-artefact="inspectScale:1 1 1; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
               label_offset:0.0 0.3 0.0; label_visible:true; arrow_position:down;
               title:Canadian $5 Bill;
@@ -221,9 +214,9 @@
               label_text:$5;">
     </a-entity>
 
-    <a-entity id="helmet" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#helmet_gltf"
-              circles-artefact="inspectScale:1 1 1; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 0.3 0.0; label_visible:true; arrow_position:down;
+    <a-entity id="helmet" position="0 2 11.4" rotation="0 0 0" scale="1 1 1" gltf-model="#helmet_gltf"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
+              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
               title:Helmet;
               description:You will need to wear a helmet and space suit on your space walk;
               title_back:Helmet;
@@ -231,9 +224,33 @@
               label_text:Helmet;">
     </a-entity>
     <a-entity id="helmetStand" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#helmetStand_gltf"></a-entity>
-    <a-entity id="imaxCamera" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"></a-entity>
-    <a-entity id="satellite" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#satellite_gltf"></a-entity>
-    <a-entity id="toolbox" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#toolbox_gltf"></a-entity>
+    <a-entity id="imaxCamera" position="4.8 5.3 -12.1" rotation="15 -20 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
+              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              title:Camera;
+              description:This is an Imax camera;
+              title_back:Imax Camera;
+              description_back:This is an Imax camera;
+              label_text:Imax Camera;">
+    </a-entity>
+    <a-entity id="satellite" position="-3 5 -10.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
+              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              title:Satellite;
+              description:This is a satellite;
+              title_back:Satellite;
+              description_back:This is a satellite;
+              label_text:Satellite;">
+    </a-entity>
+    <a-entity id="toolbox" position="1 0.3 -11.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
+              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              title:Toolbox;
+              description:This is a toolbox;
+              title_back:Toolbox;
+              description_back:This is a toolbox;
+              label_text:Toolbox;">
+    </a-entity>
     
 
     <!-- James Webb telescope -->
@@ -307,7 +324,13 @@
                 material='shader:flat; src:#skyMap; side:back;'>
       </a-entity> -->
 
-      <a-entity environment="preset:starry;"></a-entity>
+      <a-entity id='spaceBox'
+                rotation='0 200 0'
+                geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
+                material='shader:flat; src:#earth_jpg; side:back;'>
+      </a-entity>
+
+      <!-- <a-entity environment="preset:starry;"></a-entity> -->
 
        <!-- Audio Manager -->
        <audio id="myAudio" src="public\assets\background_audio.mp3"></audio>

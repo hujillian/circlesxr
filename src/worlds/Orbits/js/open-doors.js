@@ -37,7 +37,7 @@ AFRAME.registerComponent('open-doors', {
                 // close doors
                 // moveDoors(CONTEXT_AF.leftDoor, CONTEXT_AF.leftDoor.pos, -6);
                 // moveDoors(CONTEXT_AF.rightDoor, CONTEXT_AF.rightDoor.pos, -6);
-                moveDoors(CONTEXT_AF.Door, CONTEXT_AF.Door.pos, -6);
+                moveDoors(CONTEXT_AF.Door, CONTEXT_AF.Door.pos, -6.5);
                 CONTEXT_AF.el.emit("doorClosed", {value: CONTEXT_AF.Door}, true);
                 //CONTEXT_AF.isOpen = false;
             }
@@ -45,7 +45,7 @@ AFRAME.registerComponent('open-doors', {
                 // open door
                 // moveDoors(CONTEXT_AF.leftDoor, CONTEXT_AF.leftDoor.pos, 6);
                 // moveDoors(CONTEXT_AF.rightDoor, CONTEXT_AF.rightDoor.pos, 6);
-                moveDoors(CONTEXT_AF.Door, CONTEXT_AF.Door.pos, 6);
+                moveDoors(CONTEXT_AF.Door, CONTEXT_AF.Door.pos, 6.5);
                 CONTEXT_AF.el.emit("doorOpened", {value: CONTEXT_AF.Door}, true);
                 //CONTEXT_AF.isOpen = true;
             }
