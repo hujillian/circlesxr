@@ -2,7 +2,7 @@
 
 AFRAME.registerComponent('circles-checkpoint', {
   schema: {
-    offset: {default: {x: 0, y: 0, z: 0}, type: 'vec3'}
+    offset: {default: {x: 0, y: 1, z: 0}, type: 'vec3'}
   },
 
   init: function () {
