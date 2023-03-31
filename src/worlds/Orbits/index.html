@@ -153,10 +153,10 @@
     <a-entity id="floor" position="0 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf"></a-entity>
 
     <!-- Doors -->
-    <a-entity id="diningHall_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf"></a-entity>
-    <a-entity id="diningHall_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf"></a-entity>
-    <a-entity id="lobby_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf"></a-entity>
-    <a-entity id="lobby_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf"></a-entity>
+    <a-entity id="diningHall_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="diningHall_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="lobby_front" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    <a-entity id="lobby_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     
     <!-- Portal -->
     <a-entity id="portal-outside" position="-4 2.5 8" circles-portal="img_src:#earth_jpg; title_text:Go Outside; link_url:/w/Outside"></a-entity>
@@ -204,9 +204,10 @@
 
     <!-- Interior objects -->
     <!-- Description credit: https://www.bankofcanada.ca/banknotes/bank-note-series/frontiers/5-polymer-note/ -->
-    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 2 -10" rotation="90 0 0"
-              circles-artefact="inspectScale:1 1 1; textRotationY:90.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 0.3 0.0; label_visible:true; arrow_position:down;
+    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 1.7 -10" rotation="90 0 0"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:1 1 1; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_offset:0.0 0.3 0.0; arrow_position:down; descriptionLookAt:true;
               title:Canadian $5 Bill;
               description:On the Canadian $5 bill there is the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on board the International Space Station;
               title_back:Canadian $5 Bill;
@@ -215,18 +216,22 @@
     </a-entity>
 
     <a-entity id="helmet" position="0 2 11.4" rotation="0 0 0" scale="1 1 1" gltf-model="#helmet_gltf"
-              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:0.0 0.0 0;
+              label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:Helmet;
               description:You will need to wear a helmet and space suit on your space walk;
               title_back:Helmet;
               description_back:You will need to wear a helmet and space suit on your space walk;
               label_text:Helmet;">
     </a-entity>
-    <a-entity id="helmetStand" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#helmetStand_gltf"></a-entity>
+
+    <a-entity id="helmetStand" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#helmetStand_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
+    
     <a-entity id="imaxCamera" position="4.8 5.3 -12.1" rotation="15 -20 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"
-              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:15 -20 0;
+              label_offset:0.0 -0.7 0.0; arrow_position:up; descriptionLookAt:true;
               title:Camera;
               description:This is an Imax camera;
               title_back:Imax Camera;
@@ -234,8 +239,9 @@
               label_text:Imax Camera;">
     </a-entity>
     <a-entity id="satellite" position="-3 5 -10.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"
-              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.7 0.7 0.7; textRotationY:0.0; inspectRotation:110 50 0;
+              label_offset:0.0 -1.0 0.0; arrow_position:up; descriptionLookAt:true;
               title:Satellite;
               description:This is a satellite;
               title_back:Satellite;
@@ -243,8 +249,9 @@
               label_text:Satellite;">
     </a-entity>
     <a-entity id="toolbox" position="1 0.3 -11.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"
-              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; textLookAt:false; inspectRotation:0.0 0.0 0; inspectOffsetY:0;
-              label_offset:0.0 1.0 0.0; label_visible:true; arrow_position:down;
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:1 1 1; textRotationY:0.0; inspectRotation:0.0 180.0 0;
+              label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:Toolbox;
               description:This is a toolbox;
               title_back:Toolbox;
