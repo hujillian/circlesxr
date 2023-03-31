@@ -1,0 +1,153 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.4.49",
+        "version" : "2.0"
+    },
+    "extensionsUsed" : [
+        "KHR_materials_specular",
+        "KHR_materials_ior"
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "floorNavMesh",
+            "rotation" : [
+                0.70710688829422,
+                0,
+                0,
+                0.7071066498756409
+            ]
+        },
+        {
+            "mesh" : 0,
+            "name" : "floor_Mesh",
+            "rotation" : [
+                0.70710688829422,
+                0,
+                0,
+                0.7071066498756409
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "alphaMode" : "BLEND",
+            "doubleSided" : true,
+            "extensions" : {
+                "KHR_materials_specular" : {
+                    "specularColorFactor" : [
+                        1,
+                        1,
+                        1
+                    ]
+                },
+                "KHR_materials_ior" : {
+                    "ior" : 1
+                }
+            },
+            "name" : "initialShadingGroup",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.8999999761581421,
+                    0.9900000095367432,
+                    1,
+                    1
+                ],
+                "metallicFactor" : 0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "floor_Mesh",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "TEXCOORD_0" : 1,
+                        "NORMAL" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 22,
+            "max" : [
+                6.001179218292236,
+                13.021016120910645,
+                0.005154999904334545
+            ],
+            "min" : [
+                -6.00045919418335,
+                -21.158145904541016,
+                -0.005222000181674957
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 22,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 22,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 72,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 264,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 176,
+            "byteOffset" : 264,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 264,
+            "byteOffset" : 440,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 144,
+            "byteOffset" : 704,
+            "target" : 34963
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 848,
+            "uri" : "data:application/octet-stream;base64,pIy4OQ2rncB7aQq4ZM1IOjcpnkDW5ZS4QgbAQNMlnkD5LqU73gLAQHOuncAhdqY7T/a/wBVWUEFQHau7ycuaOmJUUEHNr+a4s/m/wJssnkAo1qm7qQnAQK9SUEE18KM7Gv2/wKanncBjl6i7h8NSuVQdDsEwYp83Nfy/QHfVK8FG66g7AAAwQIzUK8FwXhw7AAAwQFQdDsHJyxo7AAAwwFQdDsFAThi7AAAwwP7SK8GZuxa7wwPAwBLSK8E+Iqa7ycuaunRDqcHNr+Y4jfD2uVQdLsGkjDg4AAAwQFQdLsE3bxw7uMxCQOJDqcGYNTE7AAAwwFQdLsHSqha7Z/NCwAVDqcFi2yK7js0CP02gBD+k3wI/+WVAP9I1Jz+0WkA/zSMnPxiVBD+MML0+Pl1xP4XuAj/4UXE/yxK9Pi5xQD/DRCc/w0ZxP57uvD6TqwQ/sMUCPxxZ2T5EGCc/csTCPkBqEz+i0MI+h20TP2pP2T4EPeQ+0GLZPnY25D425cI+jNe8Pmbxwj59rgI/CFIJPsLBAj+SH8E+/WkTP+AVwT5PHxU/fDsJPvA15D5GKcE+eHvgPthoCT5kXV86j9IOt/n/f7+GW186a9WStvn/f79RXl86P72Stvr/f79xXl86F9cOt/n/f7+6WF869Hajtvn/f7+EW186WW2itvn/f7+8WF86nO2Stvr/f79NXl86vGOhtvn/f79VXF86B84Ot/r/f789X186YAZct/n/f7/CWl86aJ8pt/v/f79XWl86y0gkt/n/f7+RXl86TaNbt/r/f7/rX186bmlct/r/f78EY18653Mkt/n/f7+5Yl8699kpt/v/f78fXl86rmzZtvr/f78fXl86sGzZtvn/f78gVl86F9rZtvr/f78gVl86F9rZtvr/f78fZl86R//Ytvv/f78fZl86R//Ytvv/f78AAAEAAgAAAAIAAwAEAAUAAQAEAAEABgABAAUABwABAAcAAgAGAAEAAAAGAAAACAAMAAkAAAAAAAMACgAKAAsADAAAAAoADAAPAAgAAAAAAAkADQANAA4ADwAAAA0ADwATABAAEQASAAsACgATABEAEgASAAoAEwAVAA8ADgAUABEAEAAVAA4AFAAUABAAFQA="
+        }
+    ]
+}
