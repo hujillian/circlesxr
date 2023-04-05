@@ -277,9 +277,11 @@ This is a core component in our framework that explores learning around tools an
   | label_on        | boolean         | Whether label is visible/used.                            | true                 |
   | label_text      | string          | Label text.                                               | 'label_text'         |
   | label_offset    | vec3            | Position relative to artefact it is attached to.          | 0 0 0                |
-  | arrow_position  | string, oneOf: ['up', 'down', 'left', 'right']         | Which way the labels points.                 | 'up'         |
+  | label_arrow_position  | string, oneOf: ['up', 'down', 'left', 'right']         | Which way the labels points.                 | 'up'         |
   | description_on  | boolean         | Whether description is visible/used.                            | true                 |
   | descriptionLookAt  | boolean         | Whether description rotates to follow avatar.                            | false                 |
+  | description_offset    | vec3            | Position relative to artefact it is attached to.          | 0 1.22 0                |
+  | desc_arrow_position  | string, oneOf: ['up', 'down', 'left', 'right']         | Which way the labels points.                 | 'up'         |
   | title           | string          | Title of description.                                     | 'No Title Set'       |
   | title_back      | string          | Title of description on back.                                     | ''       |
   | description     | string          | Description text.                                         | 'No decription set'  |
@@ -296,18 +298,23 @@ This is a core component in our framework that explores learning around tools an
             scale="1 1 1"
             gltf-model="#model_gltf"
             circles-artefact="
-                inspectPosition:  0.0 0.0 0.0;
-                inspectScale:     0.5 0.5 0.5;
-                inspectRotation:  0 0 0;
-                textRotationY:    90;
-                label_offset:     0 1 0;
-                label_visible:    true;
-                arrow_position:   down;
-                title:            Some Title;
-                description:      Some description text.;
-                label_text:       Some Label;
-                audio:#some-snd; 
-                volume:0.4;" >
+                inspectPosition:      0.0 0.0 0.0;
+                inspectScale:         0.5 0.5 0.5;
+                inspectRotation:      0 0 0;
+                textRotationY:        90;
+                descrption_offset:    0 1 0;
+                description_on:       true;
+                desc_arrow_position:  down;
+                label_text:           Some Label;
+                label_offset:         0 1 0;
+                label_on:             true;
+                label_arrow_position: down;
+                title:                Some Title;
+                description:          Some description text.;
+                title_back:           Some Title;
+                description_back:     Some description text.;
+                audio:                #some-snd; 
+                volume:               0.4;" >
   </a-entity>
   ```
 
@@ -347,18 +354,22 @@ This is a core component in our framework that explores learning around tools an
   | title_text_back        | string         | Back title text.                                          | ''                |
   | description_text_front | string         | Front title text.                                         | '[~240-280 chars] description_front'                |
   | description_text_back  | string         | Front title text.                                         | ''                |
-  | lookAtCamera    | boolean            | Whether the description rotates to face the camera.               | true               |
+  | offset          | vec3            | Adjust where the label is positioned, relative to rotation origin.               | 0 0 0                |
+  | arrow_position  | string, oneOf: ['up', 'down', 'left', 'right']            | Adjust where the player is positioned, relative to checkpoint position.               | 'up'               |
+  | lookAtCamera    | boolean            | Whether the label rotates to face the camera.               | true               |
   | updateRate      | number            | How often the lookAtCamera rotates the label, in ms.               | 20                |
 
   *Example 'circles-description' code: Note that if no back title and description provided the rotate button above is not shown.*
 
   ```html
   <a-entity id="description_box" position="1.0 2.0 3.0" rotation="0 90 0"
-            circles-description=" title_text_front:Hello!;
-                                  description_text_front:I am saying hello.;
-                                  title_text_back:Good-bye!;
-                                  description_text_back:I am saying godo-bye.;
-                                  lookAtCamera:true; "></a-entity>
+            circles-description=" title_text_front:       Hello!;
+                                  description_text_front: I am saying hello.;
+                                  title_text_back:        Good-bye!;
+                                  description_text_back:  I am saying good-bye.;
+                                  offset:                 2 0 0;
+                                  arrow_position:         left;
+                                  lookAtCamera            :true; "></a-entity>
   ```
 - [circles-interactive-object](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-interactive-object.js): Attach to an entity that you wish to be interactive, and add some visual feedback to the object i.e., hover effects like scale, highlight, or an outline. Also have teh ability to quickly add a sound effect to be played during click here.
 
@@ -381,6 +392,28 @@ This is a core component in our framework that explores learning around tools an
     <!-- allows us to interact with this element and listen for events i.e., "click", "mouseover", and "mouseleave" -->
     <!-- Important: note that "material" is listed before "circles-interactive-object" because it uses "circles-material-extend-fresnel" -->
     <a-entity material="color:rgb(101,6,23);" geometry="primitive:sphere; radius:0.4" circles-interactive-object="type:highlight"></a-entity>
+    ```
+- [circles-interactive-visible](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-interactive-visible.js): Attach to an entity that (or one or more of its child nodes) is interactive already, using _circles-interactive-object_, so that when we make it visible/non-visible, all interaction are enabled/disabled also. Otherwise, if you just use A-frame's ['visible' component](https://github.com/aframevr/aframe/blob/master/docs/components/visible.md), you can still click on invisible entities.
+
+  _NOTE: This component attempts to look through all child elements also, o toggle interactive components._  
+
+    | Value              | Description                                                                       |
+    |--------------------|-----------------------------------------------------------------------------------|
+    | true               | The entity will be rendered and visible (and interactive); the default value.     |
+    | false              | The entity will not be rendered and visible (and not interactive).                |
+
+    *Example 'circles-interactive-visible'*
+
+    ```html
+    <!-- allows us to hide/show and interactuve object without it being stil interactuve when invisible -->
+    <a-entity geometry="primitive:sphere; radius:0.4" circles-interactive-object circles-interactive-visible="false"></a-entity>
+
+    <!-- child node example -->
+    <a-entity id="controls" circles-interactive-visible="false">
+      <a-entity geometry="primitive:sphere; radius:0.4" circles-interactive-object></a-entity>
+      <a-entity geometry="primitive:sphere; radius:0.4" circles-interactive-object></a-entity>
+      <a-entity geometry="primitive:sphere; radius:0.4" circles-interactive-object></a-entity>
+    </a-entity>
     ```
 - [circles-label](https://github.com/PlumCantaloupe/circlesxr/blob/master/src/components/circles-label.js): Used to create a small visual label.
 
@@ -414,6 +447,22 @@ This is a core component in our framework that explores learning around tools an
   <a-entity id="lookyElement" circles-lookat="targetElement:#myCam; constrainYAxis:true;"></a-entity>
   ```
 
+- [circles-networked-basic](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-networked-basic.js): **_[ Experimental ]_** This component allows the any object to be shared with other connected clients. It also attempts to handle cases of when clients disconnecting, and remove the duplication of networked object basic networked-aframe objects have. Unlike _circles-pickup-networked_ these objects do not need to be interactive and cannot be picked up. This networked component also enables A-Frame's _[text](https://github.com/aframevr/aframe/blob/master/docs/components/text.md)_ to be synched.
+
+  _NOTE!!: ALl circles-networked objects require an element id_
+
+  | Property           | Type            | Description                                               | Default Value        |
+  |--------------------|-----------------|-----------------------------------------------------------|----------------------|
+  | networkedEnabled   | boolean         | turn off and on networking of this object to others       | true |
+  | networkedTemplate  | string          | Name of networked template                                | CIRCLES.NETWORKED_TEMPLATES.INTERACTIVE_OBJECT |
+
+  *Example 'circles-networked-basic'*
+
+  ```html
+  <!-- this object will be synched by the networked between multiple clients -->
+  <a-entity id="required-id" circles-networked-basic geometry="primitive:sphere; radius:0.3;"></a-entity>
+  ```
+
 - [circles-pickup-object](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-pickup-object.js): This component allows you to pickup and drop objects on click.
 
   | Property           | Type            | Description                                               | Default Value        |
@@ -433,7 +482,9 @@ This is a core component in our framework that explores learning around tools an
   <!-- make sure the object is also interactive -->
   <a-entity circles-pickup-object="animate:false;" circles-interactive-object="type:highlight;"></a-entity>
   ```
-- [circles-pickup-networked](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-pickup-object.js): **_[ Experimental ]_** This component allows the _circles-pickup-object_ to be shared with other connected clients. It also attempts to handle cases of when clients disconnecting.
+- [circles-pickup-networked](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-pickup-object.js): **_[ Experimental ]_** This component allows the _circles-pickup-object_ to be shared with other connected clients. It also attempts to handle cases of when clients disconnecting, and remove the duplication of networked object basic networked-aframe objects have.
+
+  _NOTE!!: ALl circles-networked objects require an element id_
 
   | Property           | Type            | Description                                               | Default Value        |
   |--------------------|-----------------|-----------------------------------------------------------|----------------------|
@@ -444,7 +495,7 @@ This is a core component in our framework that explores learning around tools an
 
   ```html
   <!-- make sure the object is also interactive and has the circles-pickup-object component -->
-  <a-entity circles-pickup-object="animate:false;" circles-interactive-object="type:highlight;" circles-pickup-networked></a-entity>
+  <a-entity id="required-id" circles-pickup-object="animate:false;" circles-interactive-object="type:highlight;" circles-pickup-networked></a-entity>
   ```
 
 - [circles-pdf-loader](https://github.com/PlumCantaloupe/circlesxr/blob/main/src/components/circles-pdf-loader.js): **_[ Experimental ]_** A component to load in PDFs with basic next page annd previous page controls.
@@ -583,21 +634,35 @@ CIRCLES.getAllNAFElements();
 CONTEXT_AF.socket = null;
 CONTEXT_AF.campfireEventName = "campfire_event";
 
-//this is the event to listen to before trying to get a reference to the communication socket
-CONTEXT_AF.el.sceneEl.addEventListener(CIRCLES.EVENTS.WS_CONNECTED, function (data) {
-  CONTEXT_AF.socket = CIRCLES.getCirclesWebsocket(); //get socket
-  
-  //let the user click on the campfire to turn it on/off, and then after let all other clients know it has been toggled
-  CONTEXT_AF.campfire.addEventListener('click', function () {
-    CONTEXT_AF.fireOn = !CONTEXT_AF.fireOn;
+  //create a function we can call to get all our networked stuff connected
+  CONTEXT_AF.createNetworkingSystem = function () {
+    CONTEXT_AF.socket = CIRCLES.getCirclesWebsocket(); //get socket
+    
+    //let the user click on the campfire to turn it on/off, and then after let all other clients know it has been toggled
+    CONTEXT_AF.campfire.addEventListener('click', function () {
+      CONTEXT_AF.fireOn = !CONTEXT_AF.fireOn;
 
-    //change (this) client current world
-    CONTEXT_AF.turnFire(CONTEXT_AF.fireOn);
+      //change (this) client current world
+      CONTEXT_AF.turnFire(CONTEXT_AF.fireOn);
 
-    //send event to change other client's worlds. Use CIRCLES object to get relevant infomation i.e., room and world. Room is used to know where server will send message.
-    CONTEXT_AF.socket.emit(CONTEXT_AF.campfireEventName, {campfireOn:CONTEXT_AF.fireOnue, room:CIRCLES.getCirclesGroupName(), world:CIRCLES.getCirclesWorldName()});
-  }
-});
+      //send event to change other client's worlds. Use CIRCLES object to get relevant infomation i.e., room and world. Room is used to know where server will send message.
+      CONTEXT_AF.socket.emit(CONTEXT_AF.campfireEventName, {campfireOn:CONTEXT_AF.fireOnue, room:CIRCLES.getCirclesGroupName(), world:CIRCLES.getCirclesWorldName()});
+    }
+  };
+
+    //check if circle networking is ready. If not, listen for network event to call out network setup function
+    if (CIRCLES.isCirclesWebsocketReady()) {
+        CONTEXT_AF.createNetworkingSystem();
+    }
+    else {
+        const wsReadyFunc = function() {
+            CONTEXT_AF.createNetworkingSystem();
+
+            //always good practise to remove eventlisteners we are not using
+            CONTEXT_AF.el.sceneEl.removeEventListener(CIRCLES.EVENTS.WS_CONNECTED, wsReadyFunc);
+        };
+        CONTEXT_AF.el.sceneEl.addEventListener(CIRCLES.EVENTS.WS_CONNECTED, wsReadyFunc);
+    }
 
     //listen for when others turn on campfire
     CONTEXT_AF.socket.on(CONTEXT_AF.campfireEventName, function(data) {

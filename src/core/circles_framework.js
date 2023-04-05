@@ -104,7 +104,6 @@ const EVENTS = {
   PICKUP_THIS_OBJECT        : 'PICKUP_THIS_OBJECT',
   RELEASE_THIS_OBJECT       : 'RELEASE_THIS_OBJECT',
   RELEASE_THIS_OBJECT_PRE   : 'RELEASE_THIS_OBJECT_PRE',
-  OBJECT_LABEL_LOADED       : 'OBJECT_LABEL_LOADED',
   OBJECT_OWNERSHIP_GAINED   : 'OBJECT_OWNERSHIP_GAINED',
   OBJECT_OWNERSHIP_LOST     : 'OBJECT_OWNERSHIP_LOST',
   OBJECT_OWNERSHIP_CHANGED  : 'OBJECT_OWNERSHIP_CHANGED',
@@ -127,6 +126,7 @@ const EVENTS = {
 const NETWORKED_TEMPLATES = {
   AVATAR              : 'circles-user-template',
   INTERACTIVE_OBJECT  : 'circles-interactive-object-template',
+  BASIC_OBJECT        : 'circles-basic-object-template',
   ARTEFACT            : 'circles-artefact-template',
   TEXT                : 'circles-text-template'
 };
