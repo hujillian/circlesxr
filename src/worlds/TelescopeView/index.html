@@ -1,0 +1,193 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Circles' head scripts [REQUIRED] -->
+    <circles-start-scripts/>
+
+    <!-- add your custom scripts here -->
+    <!-- <script src="/worlds/hub/scripts/hub.js"></script> -->
+  </head>
+  <body>
+
+    <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
+    <circles-start-ui/>
+
+    <!-- a-scene with 'circles-properties' component [REQUIRED] -->
+    <a-scene circles_scene_properties>
+      <a-assets>
+        <!-- add your assets here. Note that you can use relative links or absolute paths to your world -->
+        <!-- credit: HDRMaps @ https://hdrmaps.com/above-the-clouds/ -->
+        <img id='skyMap' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
+        <img id='earth_jpg' src='assets/textures/earth_cropped.jpg' crossorigin="anonymous">
+        <img id='earth_lowres' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
+        <img id='outside_portal_png' src='assets/textures/outside_portal.png' crossorigin="anonymous">
+
+        <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
+        <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
+
+        <audio id="note_c" src="assets/sounds/Note_C.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="note_d" src="assets/sounds/Note_D.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="note_e" src="assets/sounds/Note_E.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="note_f" src="assets/sounds/Note_F.mp3" preload="auto" crossorigin="anonymous"></audio>
+
+        <!-- Models -->
+        <!-- Credit for textures: https://www.solarsystemscope.com/textures/ -->
+        <a-asset-item id="alien_gltf" src="assets/models/planets/alien.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="earth_gltf" src="assets/models/planets/earth.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="galaxy_gltf" src="assets/models/planets/galaxy.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="jupiter_gltf" src="assets/models/planets/jupiter.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="mars_gltf" src="assets/models/planets/mars.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="mercury_gltf" src="assets/models/planets/mercury.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="neptune_gltf" src="assets/models/planets/neptune.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="saturn_gltf" src="assets/models/planets/saturn.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="stars_gltf" src="assets/models/planets/stars.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="uranus_gltf" src="assets/models/planets/uranus.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="venus_gltf" src="assets/models/planets/venus.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        
+        <!-- loading navmesh. Following instructiosn from here: https://github.com/n5ro/aframe-extras/tree/master/src/pathfinding -->
+        <a-asset-item id="navmesh_gltf" src="assets/models/nav_mesh_circle.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+      
+        <!-- Circles' built-in assets [REQUIRED] -->
+        <circles-assets/>
+      </a-assets>
+
+      <!-- Circles' built-in manager and avatar [REQUIRED] -->
+      <circles-manager-avatar/>
+
+      <!-- just creating an entity that connects many elements together -->
+      <a-entity id="game_manager"></a-entity>
+
+    <!-- <a-entity id="rig" movement-controls position="0 0 0">
+      <a-entity camera position="0 2 0"></a-entity>
+    </a-entity> -->
+    
+    <!-- Space objects -->
+    
+    <a-entity id="alien" position="-3 5 -3" rotation="40 40 30" scale="0.05 0.05 0.05" gltf-model="#alien_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Alien;
+              description:This is an alien;
+              title_back:Alien;
+              description_back:This is an alien;">
+    </a-entity>
+
+  <!-- <a-entity 
+    circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+    label_on:false; descriptionLookAt:true;
+    title:Earth;
+    description:This is planets;
+    title_back:Earth;
+    description_back:This is Earth;">
+      <a-entity id="earth" position="4 2.65 -3" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#earth_gltf"
+                circles-sphere-env-map="src:#skyMap">
+      </a-entity>
+      <a-entity id="mars" position="5 2.65 -1.6" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#mars_gltf"
+                circles-sphere-env-map="src:#skyMap">
+      </a-entity>
+
+  </a-entity> -->
+
+    <a-entity id="earth" position="4 2.65 -3" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#earth_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Earth;
+              description:This is Earth;
+              title_back:Earth;
+              description_back:This is Earth;">
+    </a-entity>
+
+    <a-entity id="jupiter" position="9 2.65 1" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#jupiter_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.05 0.05 0.05; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Jupiter;
+              description:This is Jupiter;
+              title_back:Jupiter;
+              description_back:This is Jupiter;">
+    </a-entity>
+
+    <a-entity id="mars" position="5 2.65 -1.6" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#mars_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.7 0.7 0.7; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Mars;
+              description:This is Mars;
+              title_back:Mars;
+              description_back:This is Mars;">
+    </a-entity>
+
+    <a-entity id="mercury" position="1.26 2.65 -4.2" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#mercury_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Mercury;
+              description:This is Mercury;
+              title_back:Mercury;
+              description_back:This is Mercury;">
+    </a-entity>
+
+    <a-entity id="neptune" position="12 2.65 13.8" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#neptune_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.1 0.1 0.1; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Neptune;
+              description:This is Neptune;
+              title_back:Neptune;
+              description_back:This is Neptune;">
+    </a-entity>
+
+    <a-entity id="saturn" position="12 2.65 6.26" rotation="-35 -65 11" scale="0.1 0.1 0.1" gltf-model="#saturn_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.05 0.05 0.05; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Saturn;
+              description:This is Saturn;
+              title_back:Saturn;
+              description_back:This is Saturn;">
+      </a-entity>
+
+    <a-entity id="uranus" position="12.55 2.65 10.65" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#uranus_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.1 0.1 0.1; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Uranus;
+              description:This is Uranus;
+              title_back:Uranus;
+              description_back:This is Uranus;">
+    </a-entity>
+
+    <a-entity id="venus" position="3 2.65 -4" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#venus_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Venus;
+              description:This is Venus;
+              title_back:Venus;
+              description_back:This is Venus;">
+    </a-entity>
+
+    <a-entity id="galaxy" position="0 5 -30" rotation="0 0 0" scale="1 1 1" gltf-model="#galaxy_gltf"></a-entity>
+    <a-entity id="stars" position="-10 15 40" rotation="0 0 0" scale="1 1 1" gltf-model="#stars_gltf"></a-entity>
+
+    <!-- Portal -->
+    <a-entity id="portal-outside" position="-5 2.5 0.5" rotation="0 10 0" circles-portal="img_src:#outside_portal_png; title_text:Return; link_url:/w/Outside"></a-entity>
+     
+    <!-- Nav mesh -->
+    <a-entity id="nav-mesh-telescope" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
+
+      <a-entity id='spaceBox'
+                rotation='0 200 0'
+                geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
+                material='shader:flat; src:#earth_jpg; side:back;'>
+      </a-entity>
+
+    </a-scene>
+    <!-- Circles' end scripts [REQUIRED] -->
+    <circles-end-scripts/>
+    
+  </body>
+</html>
