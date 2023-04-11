@@ -33,18 +33,22 @@
 
         <!-- Models -->
         <!-- Credit for textures: https://www.solarsystemscope.com/textures/ -->
-        <a-asset-item id="alien_gltf" src="assets/models/planets/alien.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="earth_gltf" src="assets/models/planets/earth.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="galaxy_gltf" src="assets/models/planets/galaxy.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="alien_gltf" src="assets/models/alien.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="galaxy_gltf" src="assets/models/galaxy.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="stars_gltf" src="assets/models/stars.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <!-- <a-asset-item id="earth_gltf" src="assets/models/planets/earth.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="jupiter_gltf" src="assets/models/planets/jupiter.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="mars_gltf" src="assets/models/planets/mars.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="mercury_gltf" src="assets/models/planets/mercury.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="neptune_gltf" src="assets/models/planets/neptune.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="saturn_gltf" src="assets/models/planets/saturn.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="stars_gltf" src="assets/models/planets/stars.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="uranus_gltf" src="assets/models/planets/uranus.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="venus_gltf" src="assets/models/planets/venus.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="venus_gltf" src="assets/models/planets/venus.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item> -->
+        <a-asset-item id="planets_gltf" src="assets/models/planets.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
+        <a-asset-item id="viewport_gltf" src="assets/models/telescopeViewport_v03.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        
+
         <!-- loading navmesh. Following instructiosn from here: https://github.com/n5ro/aframe-extras/tree/master/src/pathfinding -->
         <a-asset-item id="navmesh_gltf" src="assets/models/nav_mesh_circle.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
       
@@ -64,31 +68,31 @@
     
     <!-- Space objects -->
     
-    <a-entity id="alien" position="-3 5 -3" rotation="40 40 30" scale="0.05 0.05 0.05" gltf-model="#alien_gltf"
+    <a-entity id="alien" position="-4 1.5 3" rotation="0 127 0" scale="0.1 0.1 0.1" gltf-model="#alien_gltf"
               circles-sphere-env-map="src:#skyMap"
-              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              circles-artefact="inspectScale:0.3 0.3 0.3; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_on:false; descriptionLookAt:true;
               title:Alien;
-              description:This is an alien;
-              title_back:Alien;
-              description_back:This is an alien;">
+              description:The James Webb telescope may detect biosignatures aka signs of alien life!;">
     </a-entity>
 
-  <!-- <a-entity 
-    circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
-    label_on:false; descriptionLookAt:true;
-    title:Earth;
-    description:This is planets;
-    title_back:Earth;
-    description_back:This is Earth;">
-      <a-entity id="earth" position="4 2.65 -3" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#earth_gltf"
-                circles-sphere-env-map="src:#skyMap">
-      </a-entity>
-      <a-entity id="mars" position="5 2.65 -1.6" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#mars_gltf"
-                circles-sphere-env-map="src:#skyMap">
-      </a-entity>
-
-  </a-entity> -->
+    <!-- Planets -->
+    <a-entity id="planets" position="4 3.7 1.8" rotation="-5 -30 3" scale="0.05 0.05 0.05" gltf-model="#planets_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.01 0.01 0.01; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true; description_offset:0 -1 0; desc_arrow_position:up;
+              title:Planets;
+              description:The James webb telescope will observe elements that make up planets. It will study our solar system and distant planetary systems as they are forming.;">
+    </a-entity>
+    <!-- <a-entity id="jupiter" position="9 2.65 1" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#jupiter_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.05 0.05 0.05; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Jupiter;
+              description:This is Jupiter;
+              title_back:Jupiter;
+              description_back:This is Jupiter;">
+    </a-entity>
 
     <a-entity id="earth" position="4 2.65 -3" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#earth_gltf"
               circles-sphere-env-map="src:#skyMap"
@@ -98,16 +102,6 @@
               description:This is Earth;
               title_back:Earth;
               description_back:This is Earth;">
-    </a-entity>
-
-    <a-entity id="jupiter" position="9 2.65 1" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#jupiter_gltf"
-              circles-sphere-env-map="src:#skyMap"
-              circles-artefact="inspectScale:0.05 0.05 0.05; textRotationY:90.0; inspectRotation:0.0 0.0 0;
-              label_on:false; descriptionLookAt:true;
-              title:Jupiter;
-              description:This is Jupiter;
-              title_back:Jupiter;
-              description_back:This is Jupiter;">
     </a-entity>
 
     <a-entity id="mars" position="5 2.65 -1.6" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#mars_gltf"
@@ -168,22 +162,40 @@
               description:This is Venus;
               title_back:Venus;
               description_back:This is Venus;">
+    </a-entity> -->
+
+    <a-entity id="galaxy" position="-0.5 3 -6" rotation="18 0 0" scale="0.7 0.7 0.7" gltf-model="#galaxy_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true;
+              title:Galaxy;
+              description:The James Webb telescope will observe distant galaxies as they are forming, and the first galaxies formed after the Big Bang.;">
     </a-entity>
 
-    <a-entity id="galaxy" position="0 5 -30" rotation="0 0 0" scale="1 1 1" gltf-model="#galaxy_gltf"></a-entity>
-    <a-entity id="stars" position="-10 15 40" rotation="0 0 0" scale="1 1 1" gltf-model="#stars_gltf"></a-entity>
+    <a-entity id="stars" position="-1.8 4 5.8" rotation="-5 -51 2" scale="0.3 0.3 0.3" gltf-model="#stars_gltf"
+              circles-sphere-env-map="src:#skyMap"
+              circles-artefact="inspectScale:0.2 0.2 0.2; textRotationY:90.0; inspectRotation:0.0 0.0 0;
+              label_on:false; descriptionLookAt:true; description_offset:0 -1 0; desc_arrow_position:up;
+              title:Stars;
+              description:The James Webb Telescope will observe and capture images of previously unseen stages of a star's life cycle, and search for the first stars created after the Big Bang.;">
+    </a-entity>
 
+    <a-entity id="viewport" position="0 1 0" rotation="0 0 0" scale="0.6 0.6 0.6" gltf-model="#viewport_gltf"></a-entity>
+    
     <!-- Portal -->
-    <a-entity id="portal-outside" position="-5 2.5 0.5" rotation="0 10 0" circles-portal="img_src:#outside_portal_png; title_text:Return; link_url:/w/Outside"></a-entity>
+    <a-entity id="portal-outside" position="-2.6 2.3 -0.4" rotation="0 10 0" scale="0.5 0.5 0.5" circles-portal="img_src:#outside_portal_png; title_text:Return; link_url:/w/Outside"></a-entity>
      
     <!-- Nav mesh -->
     <a-entity id="nav-mesh-telescope" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
 
-      <a-entity id='spaceBox'
-                rotation='0 200 0'
-                geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
-                material='shader:flat; src:#earth_jpg; side:back;'>
-      </a-entity>
+    <!-- Lights -->
+    <a-entity id="center_light" position="0 3.4 0" light="type:point; color:#FFFFFF; intensity:2.5; decay:0.83;"></a-entity> 
+
+    <a-entity id='spaceBox'
+              rotation='0 200 0'
+              geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
+              material='shader:flat; src:#earth_jpg; side:back;'>
+    </a-entity>
 
     </a-scene>
     <!-- Circles' end scripts [REQUIRED] -->
