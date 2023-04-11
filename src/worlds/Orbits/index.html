@@ -10,7 +10,7 @@
     <script src="js/open-doors.js"></script>
     <script src="js/start-game.js"></script>
     <!-- <script src="js/switch-nav-mesh.js"></script> -->
-    <script src="js/audio-manager.js"></script>
+    <!--<script src="js/audio-manager.js"></script> -->
     <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>
@@ -33,6 +33,17 @@
 
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
         <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
+
+        <!-- credit: "BackgroundMusic" music - ... -->
+        <audio id="backgroundMusic" src="assets/sounds/background_audio.mp3" preload="auto" crossorigin="anonymous"></audio>
+
+        <!-- VoiceOvers -->
+        <audio id="vcFiveDollar" src="assets/sounds/vcFiveDollar.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcHelmet" src="assets/sounds/vcHelmet.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcImaxCamera" src="assets/sounds/vcImaxCamera.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcSatellite" src="assets/sounds/vcSatellite.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcToolbox" src="assets/sounds/vcToolbox.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <audio id="note_c" src="assets/sounds/Note_C.mp3" preload="auto" crossorigin="anonymous"></audio>
         <audio id="note_d" src="assets/sounds/Note_D.mp3" preload="auto" crossorigin="anonymous"></audio>
@@ -61,7 +72,6 @@
       <a-asset-item id="lobby_back_gltf" src="assets/models/spaceship/doors/LobbyDoor_Back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
       <a-asset-item id="lobby_front_gltf" src="assets/models/spaceship/doors/LobbyDoor_Front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
-
       <!-- James Webb telescope -->
       <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
       
@@ -96,6 +106,11 @@
       <a-entity circles-checkpoint position="0 0.145 -19"></a-entity> <!-- observatory -->
       <a-entity circles-checkpoint position="-3.17 0.145 -0.13"></a-entity> <!-- dining hall -->
       <a-entity circles-checkpoint position="0 0.145 8"></a-entity> <!-- departure bay -->
+
+      <!-- We are no longer using Audio Manager, sticking with Circles-XR documentation -->
+      <!----------------------- Audio Manager ------------------------------>
+      <!-- <audio id="myAudio" src="public\assets\background_audio.mp3"></audio> -->
+      <a-entity position="0 0 0" circles-sound="type:music; src:#backgroundMusic; autoplay:true; loop:true; volume:0.4; state:play;"></a-entity>
 
       <!-- island 1, with some spawnpoints -->
       <!-- <a-entity circles-checkpoint circles-spawnpoint position="-9.404 0.592 9.588"></a-entity>
@@ -160,16 +175,18 @@
     <a-entity id="lobby_back" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
     
     <!-- Portal -->
-    <a-entity id="portal-outside" position="-4 2.5 8" circles-portal="img_src:#earth_jpg; title_text:Go Outside; link_url:/w/Outside"></a-entity>
+    <a-entity id="portal-outside" 
+              position="-4 2.5 8" 
+              circles-portal="img_src:#earth_jpg; title_text:Go Outside; link_url:/w/Outside">
+            </a-entity>
     
-
     <!-- Buttons to open doors -->
     <!-- Doors between lobby and control room -->
 
     <!-- the isOpen part isn't working properly right now -->
     <!-- open-doors="id__1:lobbydoor_L_front; id__2:lobbydoor_R_front; isOpen:isOpen_lobbyFront;" -->
     <a-entity   id="button_1"
-                circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.4;"
+                circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.4; click_sound:#notew_f;"
                 position="5.9 2.5 -4" rotation="0 0 90" scale="0.8 0.8 0.8">
     </a-entity>
     <a-entity   id="button_2"
@@ -213,7 +230,9 @@
               description:The Canadian $5 bill features the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on the International Space Station.;
               title_back:Canadian $5 Bill;
               description_back:The Canadian $5 bill features the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on the International Space Station.;
-              label_text:$5;">
+              label_text:$5;
+              audio:#vcFiveDollar; 
+              volume:0.6;">
     </a-entity>
 
     <a-entity id="helmet" position="0 2 11.4" rotation="0 0 0" scale="1 1 1" gltf-model="#helmet_gltf"
@@ -224,7 +243,9 @@
               description:The Canadarm supported astronauts during space walks. Spacewalks can last up to 5-7 hours!;
               title_back:Helmet;
               description_back:The Canadarm supported astronauts during space walks. Spacewalks can last up to 5-7 hours!;
-              label_text:Helmet;">
+              label_text:Helmet;
+              audio:#vcHelmet; 
+              volume:0.6;">
     </a-entity>
 
     <a-entity id="helmetStand" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#helmetStand_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
@@ -238,7 +259,9 @@
               description:There are 2 IMAX cameras on the Canadarm that film and document the experience of astronauts in space.;
               title_back:Imax Camera;
               description_back:There are 2 IMAX cameras on the Canadarm that film and document the experience of astronauts in space.;
-              label_text:Imax Camera;">
+              label_text:Imax Camera;
+              audio:#vcImaxCamera; 
+              volume:0.6;">
     </a-entity>
     <a-entity id="satellite" position="-3 5 -10.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"
               circles-sphere-env-map="src:#skyMap"
@@ -249,7 +272,9 @@
               description:The Canadarm was used to send satellites into orbit.;
               title_back:Satellite;
               description_back:The Canadarm was used to send satellites into orbit.;
-              label_text:Satellite;">
+              label_text:Satellite;
+              audio:#vcSatellite; 
+              volume:0.6;">
     </a-entity>
     <a-entity id="toolbox" position="1 0.3 -11.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"
               circles-sphere-env-map="src:#skyMap"
@@ -259,7 +284,9 @@
               description:The Canadarm helped perform repairs on satellites and the International Space Station. A notable use was repairing the Hubble Space Telescope.;
               title_back:Toolbox;
               description_back:The Canadarm helped perform repairs on satellites and the International Space Station. A notable use was repairing the Hubble Space Telescope.;
-              label_text:Toolbox;">
+              label_text:Toolbox;
+              audio:#vcToolbox; 
+              volume:0.6;">
     </a-entity>
 
     <!-- James Webb telescope -->
@@ -271,7 +298,10 @@
               description:The James Webb telescope is currently the most powerful space telescope. It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
               title_back:James Webb Space Telescope;
               description_back:The James Webb telescope is currently the most powerful space telescope. It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
-              label_text:James Webb Telescope;"></a-entity>
+              label_text:James Webb Telescope;
+              audio:#vcJamesWebbTel; 
+              volume:0.6;">
+            </a-entity>
 
       <!-- <a-entity id="Artefact-Sword"
                 position="-13.171 0.899 9.197" rotation="-18.718 42.756 2.641" scale="1 1 1"
@@ -348,13 +378,7 @@
       </a-entity>
 
       <!-- <a-entity environment="preset:starry;"></a-entity> -->
-
-       <!-- Audio Manager -->
-       <audio id="myAudio" src="public\assets\background_audio.mp3"></audio>
-
     </a-scene>
-    
-
     <!-- Circles' end scripts [REQUIRED] -->
     <circles-end-scripts/>
     

@@ -28,12 +28,7 @@
         <img id="telescope_jpg" src="assets/textures/telescope_screenshot.jpg">
 
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
-        <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
-
-        <audio id="note_c" src="assets/sounds/Note_C.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_d" src="assets/sounds/Note_D.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_e" src="assets/sounds/Note_E.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_f" src="assets/sounds/Note_F.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="outdoorSound" src="assets/sounds/outdoor_sound.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- Rooms-->
         <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -67,9 +62,6 @@
         <!-- Circles' built-in assets [REQUIRED] -->
         <circles-assets/>
       </a-assets>
-
-
-
 
       <!-- Circles' built-in manager and avatar [REQUIRED] -->
       <circles-manager-avatar/>
@@ -126,22 +118,24 @@
     <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
     <a-entity id="portal-telescope" position="41.3 6.7 -30" rotation="0 -115 0" circles-portal="img_src:#telescope_jpg; title_text:View Telescope; link_url:/w/TelescopeView"></a-entity>
     
+    <!-- Audio Manager -->
+    <a-entity position="0 0 0" circles-sound="type:music; src:#outdoorSound; autoplay:true; loop:true; volume:0.4; state:play;"></a-entity>
 
-      <!-- sky and lights -->
-      <!-- <a-entity id="sunlight" position="13 20 0" rotation="40 0 0" 
-                light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity> -->
-      <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
+    <!-- sky and lights -->
+    <!-- <a-entity id="sunlight" position="13 20 0" rotation="40 0 0" 
+              light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity> -->
+    <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
 
-      <!-- Nav mesh -->
-      <a-entity id="nav-mesh" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
+    <!-- Nav mesh -->
+    <a-entity id="nav-mesh" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
 
-      <a-entity id="jameswebb_light" position="25 13 -37" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity> 
+    <a-entity id="jameswebb_light" position="25 13 -37" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity> 
 
-      <a-entity id='spaceBox'
-                rotation='0 200 0'
-                geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
-                material='shader:flat; src:#earth_jpg; side:back;'>
-      </a-entity>
+    <a-entity id='spaceBox'
+              rotation='0 200 0'
+              geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'
+              material='shader:flat; src:#earth_jpg; side:back;'>
+    </a-entity>
 
     </a-scene>
     <!-- Circles' end scripts [REQUIRED] -->
