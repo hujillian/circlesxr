@@ -88,7 +88,7 @@
     <a-entity id="checkpoint-8" circles-checkpoint position="61.5 6 -38"></a-entity> <!-- telescope 4 -->
     <a-entity id="checkpoint-9" circles-checkpoint position="46 6 -50"></a-entity> <!-- telescope 5 -->
     <a-entity id="checkpoint-10" circles-checkpoint position="31 6 -48"></a-entity> <!-- telescope 6 -->
-    <a-entity id="checkpoint-11" circles-checkpoint position="19 6 -38.5"></a-entity> <!-- telescope 6 -->
+    <a-entity id="checkpoint-11" circles-checkpoint position="19 6 -38.5"></a-entity> <!-- telescope 7 -->
 
     <!-- Rooms -->
     <a-entity id="controlRoom" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
@@ -96,31 +96,41 @@
     <a-entity id="diningHall" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     <a-entity id="engine" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     <a-entity id="lobby" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="observatory" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity> <!-- circles-material-override="src:#observatory_png"-->
+    <a-entity id="observatory" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     <a-entity id="wingL" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     <a-entity id="wingR" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="controlDesk" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="floor" position="9 0.1 10" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="controlDesk" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf"></a-entity>
+    <a-entity id="floor" position="9 0.1 10" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf"></a-entity>
 
     <!-- Doors -->
-    <a-entity id="diningHall_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="diningHall_back" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="lobby_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="lobby_back" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="diningHall_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf"></a-entity>
+    <a-entity id="lobby_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf"></a-entity>
 
     <!-- Interior objects -->
-    <a-entity id="imaxCamera" position="13.8 5.3 -2.1" rotation="15 -20 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"
-              circles-sphere-env-map="src:#skyMap">
-    </a-entity>
-    <a-entity id="satellite" position="6 5 -0.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"
-              circles-sphere-env-map="src:#skyMap">
-    </a-entity>
-    <a-entity id="toolbox" position="10 0.3 -1.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"
-              circles-sphere-env-map="src:#skyMap">
-    </a-entity>
+    <a-entity id="imaxCamera" position="13.8 5.3 -2.1" rotation="15 -20 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"></a-entity>
+    <a-entity id="satellite" position="6 5 -0.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"></a-entity>
+    <a-entity id="toolbox" position="10 0.3 -1.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"></a-entity>
     
     <!-- James Webb telescope -->
     <a-entity id="jamesWebb" position="39 0 -37" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <!-- <a-entity id="jamesWebb-description" position="23 6 -30" rotation="0 90 0"
+          circles-description=" title_text_front:       James Webb Space Telescope;
+                                description_text_front: The James Webb telescope is currently the most powerful space telescope. It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
+                                offset:                 2 0 0;
+                                arrow_position:         left;
+                                lookAtCamera            :true; "></a-entity> -->
+        <!-- information plane for earth -->
+        <!-- note how we create a parent-child relationship with entites within other entities -->
+    <a-entity id="jameswebb-description-light" position="0 1.5 -0.06" light="type:point; color:#FFFFFF; intensity:1.5; decay:0.04;"></a-entity> 
+    <a-entity id="earth_plane" position="0 0.5 -4" rotation="-30 0 0" scale="1 1 1">
+      <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+      <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+      <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
+      <a-entity text="value:James Webb Space Telescope; 
+                      color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" position="-1.4 0.5 0.01" ></a-entity>
+      <a-entity text="value:The James Webb telescope is currently the most powerful space telescope.  It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
+                      color:black; font:roboto; width:2.8; anchor:left; baseline:top; wrapCount:38;" position="-1.4 0.2 0.01" ></a-entity>
+    </a-entity>
 
     <!-- Portal -->
     <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
