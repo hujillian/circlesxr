@@ -56,7 +56,8 @@
         <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- loading navmesh. Following instructiosn from here: https://github.com/n5ro/aframe-extras/tree/master/src/pathfinding -->
-
+        <a-asset-item id="navmesh_gltf" src="assets/models/nav_mesh.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+      
         <!-- Circles' built-in assets [REQUIRED] -->
         <circles-assets/>
       </a-assets>
@@ -67,30 +68,37 @@
       <!-- just creating an entity that connects many elements together -->
       <a-entity id="game_manager" lights-interactive></a-entity>
 
+    <!-- Checkpoints -->
+    <a-entity circles-checkpoint position="0 0 0"></a-entity> <!-- start -->
+    <a-entity circles-checkpoint position="0.7 0.145 -11.2"></a-entity> <!-- path 1 -->
+    <a-entity circles-checkpoint position="7.7 0.145 -22.5"></a-entity> <!-- path 2 -->
+    <a-entity circles-checkpoint position="17 0.145 -33" rotation="15 0 -15"></a-entity> <!-- telescope 1 -->
+    <a-entity circles-checkpoint position="37 0.145 -21.6" rotation="0 0 15"></a-entity> <!-- telescope 2 -->
+
     <!-- Rooms -->
-    <a-entity id="controlRoom" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="departureBay" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#departureBay_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="diningHall" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="engine" position="13 0 1" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="lobby" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="observatory" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity> <!-- circles-material-override="src:#observatory_png"-->
-    <a-entity id="wingL" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="wingR" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="controlDesk" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="floor" position="13 0.1 0" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="controlRoom" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="departureBay" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#departureBay_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="diningHall" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="engine" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#engine_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="lobby" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="observatory" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#observatory_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity> <!-- circles-material-override="src:#observatory_png"-->
+    <a-entity id="wingL" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#wingL_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="wingR" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#wingR_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="controlDesk" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlDesk_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="floor" position="9 0.1 10" rotation="0 0 0" scale="1 1 1" gltf-model="#floor_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
 
     <!-- Doors -->
-    <a-entity id="diningHall_front" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="diningHall_back" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="lobby_front" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    <a-entity id="lobby_back" position="13 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="diningHall_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="diningHall_back" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#diningHall_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="lobby_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <a-entity id="lobby_back" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
 
     
     <!-- James Webb telescope -->
-    <a-entity id="jamesWebb" position="43 0 -47" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf"></a-entity>
+    <a-entity id="jamesWebb" position="39 0 -37" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
 
     <!-- Portal -->
-    <a-entity id="portal-inside" position="1 2.5 2" rotation="0 90 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
+    <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
     
 
       <!-- sky and lights -->
@@ -98,7 +106,10 @@
                 light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity> -->
       <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
 
-      <a-entity id="jameswebb_light" position="29 13 -47" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity> 
+      <!-- Nav mesh -->
+      <a-entity id="nav-mesh" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
+
+      <a-entity id="jameswebb_light" position="25 13 -37" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity> 
 
       <a-entity id='spaceBox'
                 rotation='0 200 0'
