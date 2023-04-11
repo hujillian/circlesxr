@@ -25,6 +25,7 @@
         <img id='earth_lowres' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
 
         <img id="observatory_png" src="assets/models/spaceship/observatory_texture-01.png">
+        <img id="telescope_jpg" src="assets/textures/telescope_screenshot.jpg">
 
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
         <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
@@ -55,12 +56,20 @@
         <!-- James Webb telescope -->
         <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
+        <!-- Interior objects -->
+        <a-asset-item id="imaxCamera_gltf" src="assets/models/interior_objects/imaxCamera.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="satellite_gltf" src="assets/models/interior_objects/satellite.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="toolbox_gltf" src="assets/models/interior_objects/toolbox.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        
         <!-- loading navmesh. Following instructiosn from here: https://github.com/n5ro/aframe-extras/tree/master/src/pathfinding -->
-        <a-asset-item id="navmesh_gltf" src="assets/models/nav_mesh.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="navmesh_gltf" src="assets/models/nav_mesh_tilted.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
       
         <!-- Circles' built-in assets [REQUIRED] -->
         <circles-assets/>
       </a-assets>
+
+
+
 
       <!-- Circles' built-in manager and avatar [REQUIRED] -->
       <circles-manager-avatar/>
@@ -69,11 +78,17 @@
       <a-entity id="game_manager" lights-interactive></a-entity>
 
     <!-- Checkpoints -->
-    <a-entity circles-checkpoint position="0 0 0"></a-entity> <!-- start -->
-    <a-entity circles-checkpoint position="0.7 0.145 -11.2"></a-entity> <!-- path 1 -->
-    <a-entity circles-checkpoint position="7.7 0.145 -22.5"></a-entity> <!-- path 2 -->
-    <a-entity circles-checkpoint position="17 0.145 -33" rotation="15 0 -15"></a-entity> <!-- telescope 1 -->
-    <a-entity circles-checkpoint position="37 0.145 -21.6" rotation="0 0 15"></a-entity> <!-- telescope 2 -->
+    <a-entity id="checkpoint-1" circles-checkpoint position="0 0 0"></a-entity> <!-- start -->
+    <a-entity id="checkpoint-2" circles-checkpoint position="0.7 1 -11.2"></a-entity> <!-- path 1 -->
+    <a-entity id="checkpoint-3" circles-checkpoint position="4.1 3.8 -22"></a-entity> <!-- path 2 -->
+    <a-entity id="checkpoint-4" circles-checkpoint position="14.7 6 -25.1"></a-entity> <!-- telescope 1 -->
+    <a-entity id="checkpoint-5" circles-checkpoint position="25.2 6 -22.7"></a-entity> <!-- telescope 2 -->
+    <a-entity id="checkpoint-6" circles-checkpoint position="37 6 -21.6"></a-entity> <!-- telescope 2 -->
+    <a-entity id="checkpoint-7" circles-checkpoint position="49 6 -28"></a-entity> <!-- telescope 3 -->
+    <a-entity id="checkpoint-8" circles-checkpoint position="61.5 6 -38"></a-entity> <!-- telescope 4 -->
+    <a-entity id="checkpoint-9" circles-checkpoint position="46 6 -50"></a-entity> <!-- telescope 5 -->
+    <a-entity id="checkpoint-10" circles-checkpoint position="31 6 -48"></a-entity> <!-- telescope 6 -->
+    <a-entity id="checkpoint-11" circles-checkpoint position="19 6 -38.5"></a-entity> <!-- telescope 6 -->
 
     <!-- Rooms -->
     <a-entity id="controlRoom" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
@@ -93,12 +108,23 @@
     <a-entity id="lobby_front" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_front_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     <a-entity id="lobby_back" position="9 0 10" rotation="0 0 0" scale="1 1 1" gltf-model="#lobby_back_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
 
+    <!-- Interior objects -->
+    <a-entity id="imaxCamera" position="13.8 5.3 -2.1" rotation="15 -20 0" scale="1 1 1" gltf-model="#imaxCamera_gltf"
+              circles-sphere-env-map="src:#skyMap">
+    </a-entity>
+    <a-entity id="satellite" position="6 5 -0.4" rotation="110 50 0" scale="1 1 1" gltf-model="#satellite_gltf"
+              circles-sphere-env-map="src:#skyMap">
+    </a-entity>
+    <a-entity id="toolbox" position="10 0.3 -1.6" rotation="0 180 0" scale="1 1 1" gltf-model="#toolbox_gltf"
+              circles-sphere-env-map="src:#skyMap">
+    </a-entity>
     
     <!-- James Webb telescope -->
     <a-entity id="jamesWebb" position="39 0 -37" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
 
     <!-- Portal -->
     <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
+    <a-entity id="portal-telescope" position="41.3 6.7 -30" rotation="0 -115 0" circles-portal="img_src:#telescope_jpg; title_text:View Telescope; link_url:/w/TelescopeView"></a-entity>
     
 
       <!-- sky and lights -->
