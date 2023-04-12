@@ -111,13 +111,12 @@
     
     <!-- James Webb telescope -->
     <a-entity id="jamesWebb" position="39 0 -37" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    
+    <!-- Description plaque -->
     <a-entity id="jameswebb-description-light" position="16.3 7.5 -24.5" light="type:point; color:#FFFFFF; intensity:1.5; decay:0.04;"></a-entity> 
     <a-entity id="jameswebb-description" position="17.6 6.5 -24.5" rotation="-30 -98 0" scale="1 1 1">
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
       <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-      <a-entity circeles-sound="src:#vcJamesWebbTel; autoplay:false; type:artefact; loop:false; volume:0.6; state:play; poolSize:1;"></a-entity>
-      <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
+      <a-entity circles-sound="src:#vcJamesWebbTel; autoplay:false; type:artefact; loop:false; volume:0.6; state:play; poolSize:1;"></a-entity>
       <a-entity text="value:James Webb Space Telescope; 
                       color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" 
                       position="-1.4 0.5 0.01" >
@@ -130,6 +129,21 @@
 
     <!-- Canadarm -->
     <a-entity id="canadarm" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#canadarm_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+    <!-- Description plaque -->
+    <a-entity id="canadarm-description-light" position="0.3 2.5 4" light="type:point; color:#FFFFFF; intensity:1.5; decay:0.04;"></a-entity> 
+    <a-entity id="canadarm-description" position="1.6 1.5 -2" rotation="-30 -98 0" scale="1 1 1">
+      <a-entity geometry="primitive:box; width:5.0; height:2.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+      <a-entity geometry="primitive:box; width:1.5; height:1.5; depth:0.5;" material="color:white;" position="0 -1 -0.69" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+      <a-entity circles-sound="src:#vcJamesWebbTel; autoplay:false; type:artefact; loop:false; volume:0.6; state:play; poolSize:1;"></a-entity>
+      <a-entity text="value:Canadarm; 
+                      color:black; font:exo2bold; width:4.8; anchor:left; baseline:top; wrapCount:26;" 
+                      position="-2.1 0.94 0" >
+                    </a-entity>
+      <a-entity text="value:The Canadarm is Canada’s most famous achievement in the field of robotics. It supported U.S space shuttle missions for 30 years (1981-2011), and was designed to have the dexterity of the human arm but with the strength to unload a space shuttle.;
+                      color:black; font:roboto; width:4.8; anchor:left; baseline:top; wrapCount:38;" 
+                      position="-2.1 0.55 0.02">
+                    </a-entity>
+    </a-entity>
     
     <!-- Portal -->
     <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
