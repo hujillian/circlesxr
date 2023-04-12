@@ -31,7 +31,7 @@
         <audio id="outdoorSound" src="assets/sounds/outdoor_sound.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- VoiceOvers -->
-        <audio id="vcvcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- Rooms-->
         <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -116,6 +116,7 @@
     <a-entity id="jameswebb-description" position="17.6 6.5 -24.5" rotation="-30 -98 0" scale="1 1 1">
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
       <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
+      <a-entity circeles-sound="src:#vcJamesWebbTel; autoplay:false; type:artefact; loop:false; volume:0.6; state:play; poolSize:1;"></a-entity>
       <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
       <a-entity text="value:James Webb Space Telescope; 
                       color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" 
@@ -123,7 +124,7 @@
                     </a-entity>
       <a-entity text="value:The James Webb telescope is currently the most powerful space telescope.  It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
                       color:black; font:roboto; width:2.8; anchor:left; baseline:top; wrapCount:38;" 
-                      position="-1.4 0.2 0.01" >
+                      position="-1.4 0.2 0.01">
                     </a-entity>
     </a-entity>
 
