@@ -26,10 +26,9 @@
         <!-- add your assets here. Note that you can use relative links or absolute paths to your world -->
         <!-- credit: HDRMaps @ https://hdrmaps.com/above-the-clouds/ -->
         <img id='skyMap' src='assets/textures/086_hdrmaps_com_free_above_clouds_lowres.jpg' crossorigin="anonymous">
-        <!-- credit: ESA - https://sci.esa.int/web/gaia/-/60196-gaia-s-sky-in-colour-equirectangular-projection -->
-        <img id='space_png' src='assets/textures/space.png' crossorigin="anonymous">
         <!-- credit: Masakazu Matsumoto - https://www.flickr.com/photos/vitroids/3033329561/ -->
         <img id='earth_jpg' src='assets/textures/earth.jpg' crossorigin="anonymous">
+        <img id='earthLowRes_jpg' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
 
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
         <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
@@ -45,18 +44,13 @@
         <audio id="vcToolbox" src="assets/sounds/vcToolbox.mp3" preload="auto" crossorigin="anonymous"></audio>
         <audio id="vcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
 
-        <audio id="note_c" src="assets/sounds/Note_C.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_d" src="assets/sounds/Note_D.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_e" src="assets/sounds/Note_E.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="note_f" src="assets/sounds/Note_F.mp3" preload="auto" crossorigin="anonymous"></audio>
-
         <!-- Rooms-->
-        <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/large_files/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/large_files/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/large_files/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="engine_gltf" src="assets/models/spaceship/engine.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="lobby_gltf" src="assets/models/spaceship/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobby_gltf" src="assets/models/spaceship/large_files/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/large_files/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingL_gltf" src="assets/models/spaceship/wingL.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingR_gltf" src="assets/models/spaceship/wingR.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="controlDesk_gltf" src="assets/models/spaceship/controldesk.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -73,7 +67,7 @@
       <a-asset-item id="lobby_front_gltf" src="assets/models/spaceship/doors/LobbyDoor_Front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
       <!-- James Webb telescope -->
-      <a-asset-item id="jamesWebb_gltf" src="assets/models/James_Webb_telescope/jamesWebbTelescope.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+      <a-asset-item id="jamesWebb_gltf" src="assets/models/jamesWebb.gltf" response-type="arraybuffer" crossorigin="anonymous" circles-sphere-env-map="src:#earthLowRes_jpg"></a-asset-item>
       
       <!-- Interior objects -->
       <a-asset-item id="fiveDollar_gltf" src="assets/models/interior_objects/fivedollarbill.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -104,6 +98,7 @@
       <a-entity circles-checkpoint position="0 0.145 -8"></a-entity> <!-- control room -->
       <a-entity circles-checkpoint position="3.17 0.145 -15"></a-entity> <!-- observatory -->
       <a-entity circles-checkpoint position="0 0.145 -19"></a-entity> <!-- observatory -->
+      <a-entity circles-checkpoint position="-4 0.145 -10"></a-entity> <!-- control room -->
       <a-entity circles-checkpoint position="-3.17 0.145 -0.13"></a-entity> <!-- dining hall -->
       <a-entity circles-checkpoint position="0 0.145 8"></a-entity> <!-- departure bay -->
 
@@ -143,7 +138,7 @@
     <!-- open-doors="id__1:lobbydoor_L_front; id__2:lobbydoor_R_front; isOpen:isOpen_lobbyFront;" -->
     <a-entity   id="button_1"
                 circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.5; click_sound:#notew_f;"
-                position="6.04 2.6 -3.42" rotation="0 -3.3 90" scale="0.8 0.8 0.8"
+                position="6.04 2.6 -3.38" rotation="0 -3.3 90" scale="0.8 0.8 0.8"
                 circles-sphere-env-map="src:#skyMap">
     </a-entity>
     <a-entity   id="button_2"
@@ -170,7 +165,7 @@
     </a-entity>
     <a-entity   id="button_6"
                 circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.45;" 
-                position="-6.06 2.2 5.91" rotation="0 180 90" scale="0.8 0.8 0.8"
+                position="-6.06 2.3 6.1" rotation="0 180 90" scale="0.8 0.8 0.8"
                 circles-sphere-env-map="src:#skyMap">
     </a-entity>
 
@@ -184,14 +179,12 @@
 
     <!-- Interior objects -->
     <!-- Description credit: https://www.bankofcanada.ca/banknotes/bank-note-series/frontiers/5-polymer-note/ -->
-    <a-entity geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" id="fiveDollar" position="0 1.7 -10" rotation="288 0 0"
+    <a-entity id="fiveDollar" geometry="primitive: box; width:1.25;height:0.5;depth:0.01;" material="src: #fiveDollar_jpg" position="0 1.66 -10" rotation="288 0 0"
               circles-sphere-env-map="src:#skyMap"
               circles-artefact="inspectScale:1 1 1; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_offset:0.0 0.3 0.0; arrow_position:down; descriptionLookAt:true;
               title:Canadian $5 Bill;
               description:The Canadian $5 bill features the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on the International Space Station.;
-              title_back:Canadian $5 Bill;
-              description_back:The Canadian $5 bill features the Canadarm and an astronaut, who represents all Canadians who have contributed to the space program and the research conducted on the International Space Station.;
               label_text:$5;
               audio:#vcFiveDollar; 
               volume:0.6;">
@@ -278,7 +271,7 @@
       <a-entity id="lobby_light" position="2.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
       <a-entity id="dininghall_light" position="-3.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
       <a-entity id="observatory_light" position="0 -0.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
-      <a-entity id="jameswebb_light" position="16 13 -47" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity> 
+      <!-- <a-entity id="jameswebb_light" position="16 13 -47" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity>  -->
 
       <!-- <a-entity id='skyBox'
                 rotation='0 200 0'
