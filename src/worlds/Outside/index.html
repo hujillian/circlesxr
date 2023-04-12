@@ -111,12 +111,11 @@
     
     <!-- James Webb telescope -->
     <a-entity id="jamesWebb" position="39 0 -37" rotation="0 -70 0" scale="1 1 1" gltf-model="#jamesWebb_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-    
     <a-entity id="jameswebb-description-light" position="16.3 7.5 -24.5" light="type:point; color:#FFFFFF; intensity:1.5; decay:0.04;"></a-entity> 
     <a-entity id="jameswebb-description" position="17.6 6.5 -24.5" rotation="-30 -98 0" scale="1 1 1">
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
       <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-      <a-entity circeles-sound="src:#vcJamesWebbTel; autoplay:false; type:artefact; loop:false; volume:0.6; state:play; poolSize:1;"></a-entity>
+
       <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
       <a-entity text="value:James Webb Space Telescope; 
                       color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" 
