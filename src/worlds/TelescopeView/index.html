@@ -23,18 +23,14 @@
         <img id='earth_lowres' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
         <img id='outside_portal_png' src='assets/textures/outside_portal.png' crossorigin="anonymous">
 
-        <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
-        <!-- credit: "BackgroundMusic" music - ... -->
-        <audio id="backgroundMusic" src="assets/sounds/background_audio.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <!-- credit: '1980' by Arulo - www.mixkit.com -->
+        <audio id="lobbyMusic" src="assets/sounds/lobbyMusic.mp3" preload="auto" crossorigin="anonymous"></audio>
         
         <!-- VoiceOvers -->
-        <audio id="vcFiveDollar" src="assets/sounds/vcFiveDollar.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="vcHelmet" src="assets/sounds/vcHelmet.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="vcImaxCamera" src="assets/sounds/vcImaxCamera.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="vcSatellite" src="assets/sounds/vcSatellite.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="vcToolbox" src="assets/sounds/vcToolbox.mp3" preload="auto" crossorigin="anonymous"></audio>
-        <audio id="vcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
-
+        <audio id="vcAlien" src="assets/sounds/vcAlien.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcPlanet" src="assets/sounds/vcPlanet.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcGalaxy" src="assets/sounds/vcGalaxy.mp3" preload="auto" crossorigin="anonymous"></audio>
+        <audio id="vcStars" src="assets/sounds/vcStars.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- Models -->
         <!-- Credit for textures: https://www.solarsystemscope.com/textures/ -->
@@ -70,6 +66,9 @@
     <!-- <a-entity id="rig" movement-controls position="0 0 0">
       <a-entity camera position="0 2 0"></a-entity>
     </a-entity> -->
+
+    <!-- Ambient Sound -->
+    <a-entity position="0 0 0" circles-sound="type:music; src:#lobbyMusic; autoplay:true; loop:true; volume:0.2; state:play;"></a-entity>
     
     <!-- Space objects -->
     
@@ -78,7 +77,9 @@
               circles-artefact="inspectScale:0.3 0.3 0.3; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_on:false; descriptionLookAt:true;
               title:Alien;
-              description:The James Webb telescope may detect biosignatures aka signs of alien life!;">
+              description:The James Webb telescope may detect biosignatures aka signs of alien life!;
+              audio:#vcAlien; 
+              volume:0.6;">
     </a-entity>
 
     <!-- Planets -->
@@ -87,7 +88,9 @@
               circles-artefact="inspectScale:0.01 0.01 0.01; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_on:false; descriptionLookAt:true; description_offset:0 -1 0; desc_arrow_position:up;
               title:Planets;
-              description:The James webb telescope will observe elements that make up planets. It will study our solar system and distant planetary systems as they are forming.;">
+              description:The James webb telescope will observe elements that make up planets. It will study our solar system and distant planetary systems as they are forming.;
+              audio:#vcPlanet;
+              volume:0.6;">
     </a-entity>
     <!-- <a-entity id="jupiter" position="9 2.65 1" rotation="0 0 0" scale="0.1 0.1 0.1" gltf-model="#jupiter_gltf"
               circles-sphere-env-map="src:#skyMap"
@@ -174,7 +177,9 @@
               circles-artefact="inspectScale:0.5 0.5 0.5; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_on:false; descriptionLookAt:true;
               title:Galaxy;
-              description:The James Webb telescope will observe distant galaxies as they are forming, and the first galaxies formed after the Big Bang.;">
+              description:The James Webb telescope will observe distant galaxies as they are forming, and the first galaxies formed after the Big Bang.;
+              audio:#vcGalaxy;
+              volume:0.6;">
     </a-entity>
 
     <a-entity id="stars" position="-1.8 4 5.8" rotation="-5 -51 2" scale="0.3 0.3 0.3" gltf-model="#stars_gltf"
@@ -182,7 +187,9 @@
               circles-artefact="inspectScale:0.2 0.2 0.2; textRotationY:90.0; inspectRotation:0.0 0.0 0;
               label_on:false; descriptionLookAt:true; description_offset:0 -1 0; desc_arrow_position:up;
               title:Stars;
-              description:The James Webb Telescope will observe and capture images of previously unseen stages of a star's life cycle, and search for the first stars created after the Big Bang.;">
+              description:The James Webb Telescope will observe and capture images of previously unseen stages of a star's life cycle, and search for the first stars created after the Big Bang.;
+              audio:#vcStars;
+              volume:0.6;">
     </a-entity>
 
     <a-entity id="viewport" position="0 1 0" rotation="0 0 0" scale="0.6 0.6 0.6" gltf-model="#viewport_gltf"></a-entity>
