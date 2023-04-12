@@ -28,6 +28,7 @@
         <img id='earth_jpg' src='assets/textures/earth.jpg' crossorigin="anonymous">
         <img id='earthLowRes_jpg' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
 
+        <!-- Outside image for the portal -->
         <img id='outside_jpg' src='assets/textures/outside_screenshot.jpg' crossorigin="anonymous">
 
         <!-- credit: "Journey to Heaven on Earth Every Day with Nature" By TechMaestro - https://pixabay.com/de/users/awesomemeditations4u888-23921393/-->
@@ -53,9 +54,6 @@
         <a-asset-item id="controlDesk_gltf" src="assets/models/spaceship/controldesk.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="floor_gltf" src="assets/models/spaceship/floor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
-        <!-- Textures -->
-        <!-- <img id="control_room_2_png" src="assets/models/spaceship/controlroom_UV_2.png">
-        <img id="observatory_png" src="assets/models/spaceship/observatory_texture-01.png"> -->
 
       <!-- Doors -->
       <a-asset-item id="diningHall_back_gltf" src="assets/models/spaceship/doors/DiningDoor_Back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -87,9 +85,6 @@
       <!-- Circles' built-in manager and avatar [REQUIRED] -->
       <circles-manager-avatar/>
 
-      <!-- just creating an entity that connects many elements together -->
-      <!-- <a-entity id="game_manager" lights-interactive></a-entity> -->
-
       <!-- Checkpoints -->
       <a-entity circles-checkpoint position="3.17 0.145 -0.13"></a-entity> <!-- lobby -->
       <a-entity circles-checkpoint position="0 0.145 -8"></a-entity> <!-- control room -->
@@ -99,9 +94,7 @@
       <a-entity circles-checkpoint position="-3.17 0.145 -0.13"></a-entity> <!-- dining hall -->
       <a-entity circles-checkpoint position="0 0.145 8"></a-entity> <!-- departure bay -->
 
-      <!-- We are no longer using Audio Manager, sticking with Circles-XR documentation -->
-      <!----------------------- Audio Manager ------------------------------>
-      <!-- <audio id="myAudio" src="public\assets\background_audio.mp3"></audio> -->
+      <!-- background music -->
       <a-entity position="0 0 0" circles-sound="type:music; src:#backgroundMusic; autoplay:true; loop:true; volume:0.4; state:play;"></a-entity>
 
 
@@ -139,9 +132,6 @@
     
     <!-- Buttons to open doors -->
     <!-- Doors between lobby and control room -->
-
-    <!-- the isOpen part isn't working properly right now -->
-    <!-- open-doors="id__1:lobbydoor_L_front; id__2:lobbydoor_R_front; isOpen:isOpen_lobbyFront;" -->
     <a-entity   id="button_1"
                 circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.5; click_sound:#notew_f;"
                 position="6.04 2.6 -3.38" rotation="0 -3.3 90" scale="0.8 0.8 0.8"
@@ -174,14 +164,6 @@
                 position="-6.06 2.25 5.92" rotation="0 180 90" scale="0.8 0.8 0.8"
                 circles-sphere-env-map="src:#skyMap">
     </a-entity>
-
-    <!-- <a-entity id="universal_button">
-      <a-entity open-doors class="button interactive" position="0 0.6 0" geometry="primitive:cylinder; radius:0.15; height:0.2;" material="color:rgb(255, 100, 100)"
-                animation__mouseenter="property:material.color; type:color; to:rgb(255, 0, 0); startEvents:mouseenter; dur:200"
-                animation__mouseleave="property:material.color; type:color; to:rgb(255, 100, 100); startEvents:mouseleave; dur:200"
-                animation__click="property:position.y; from:0.55; to:0.6; startEvents:click; dur:300" shadow></a-entity>
-      <a-entity position="0 0.3 0" geometry="primitive:box; width:0.5; depth:0.5; height:0.6;" material="color:rgb(255, 255, 255)" shadow></a-entity>
-    </a-entity> -->
 
     <!-- Interior objects -->
     <!-- Description credit: https://www.bankofcanada.ca/banknotes/bank-note-series/frontiers/5-polymer-note/ -->
@@ -263,18 +245,13 @@
                 light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity>
       <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
 
-      <!-- Temporary lights: just so we can see better in the rooms -->
+      <!-- Room lights -->
       <a-entity id="lobby_light" position="2.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
       <a-entity id="dininghall_light" position="-3.5 2.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
       <a-entity id="observatory_light" position="0 -0.5 0" light="type:point; color:#FFFFFF; intensity:1.0"></a-entity> 
       <!-- <a-entity id="jameswebb_light" position="16 13 -47" light="type:point; color:#FFFFFF; intensity:5; decay:0.5;"></a-entity>  -->
 
-      <!-- <a-entity id='skyBox'
-                rotation='0 200 0'
-                geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;'
-                material='shader:flat; src:#skyMap; side:back;'>
-      </a-entity> -->
-
+      <!-- Space environment image -->
       <a-entity id='spaceBox'
                 rotation='0 200 0'
                 geometry='primitive:sphere; radius:100; segments-height:24; segments-width:24;'

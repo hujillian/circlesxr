@@ -50,8 +50,6 @@ AFRAME.registerComponent('start-game', {
         // console.log("new nav mesh in doc: ", document.querySelector('#nav-mesh'));
 
 
-
-
         // DELETE nav mesh
         //CONTEXT_AF.navMesh.parentNode.removeChild(CONTEXT_AF.navMesh);
 
@@ -69,8 +67,6 @@ AFRAME.registerComponent('start-game', {
         // console.log("new nav mesh: ", newNavMesh);
 
         
-
-
 
         // document.querySelector('#nav-mesh').setAttribute('gltf-model', '#navmesh2_gltf');
         // console.log("nav mesh from doc: ", document.querySelector('#nav-mesh'));

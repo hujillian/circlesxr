@@ -18,7 +18,6 @@
       <a-assets>
         <!-- add your assets here. Note that you can use relative links or absolute paths to your world -->
         <!-- credit: HDRMaps @ https://hdrmaps.com/above-the-clouds/ -->
-        <img id='skyMap' src='assets/textures/086_hdrmaps_com_free_above_clouds.jpg' crossorigin="anonymous">
         <img id='earth_jpg' src='assets/textures/earth_cropped.jpg' crossorigin="anonymous">
         <img id='earth_lowres' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
 
@@ -44,9 +43,7 @@
         <a-asset-item id="floor_gltf" src="assets/models/spaceship/floor.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         
         <!-- Doors -->
-        <a-asset-item id="diningHall_back_gltf" src="assets/models/spaceship/doors/DiningDoor_Back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="diningHall_front_gltf" src="assets/models/spaceship/doors/DiningDoor_Front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="lobby_back_gltf" src="assets/models/spaceship/doors/LobbyDoor_Back.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="lobby_front_gltf" src="assets/models/spaceship/doors/LobbyDoor_Front.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
           
         <!-- James Webb telescope -->
@@ -114,8 +111,6 @@
     <a-entity id="jameswebb-description" position="17.6 6.5 -24.5" rotation="-30 -98 0" scale="1 1 1">
       <a-entity geometry="primitive:box; width:3.0; height:1.2; depth:0.2;" material="color:white;" position="0 0 -0.11" circles-sphere-env-map="src:#earth_lowres"></a-entity>
       <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
-
-      <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
       <a-entity text="value:James Webb Space Telescope; 
                       color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" 
                       position="-1.4 0.5 0.01" >
@@ -150,11 +145,6 @@
     
     <!-- Audio Manager -->
     <a-entity position="0 0 0" circles-sound="type:music; src:#outdoorSound; autoplay:true; loop:true; volume:0.2; state:play;"></a-entity>
-
-    <!-- sky and lights -->
-    <!-- <a-entity id="sunlight" position="13 20 0" rotation="40 0 0" 
-              light="type:directional; intensity:4; color:#d5e4f5; castShadow:false;"></a-entity> -->
-    <!-- <a-entity light="type:hemisphere; color:#FFFFFF; groundColor:#BCE2F4; intensity:3.0"></a-entity> -->
 
     <!-- Nav mesh -->
     <a-entity id="nav-mesh" gltf-model="#navmesh_gltf" visible='false' nav-mesh position="0 1 0"></a-entity>
