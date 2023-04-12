@@ -30,6 +30,8 @@
         <img id='earth_jpg' src='assets/textures/earth.jpg' crossorigin="anonymous">
         <img id='earthLowRes_jpg' src='assets/textures/earth_lowres.jpg' crossorigin="anonymous">
 
+        <img id='outside_jpg' src='assets/textures/outside_screenshot.jpg' crossorigin="anonymous">
+
         <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
         <audio id="magic_music" src="assets/sounds/Magic_Music.mp3" preload="auto" crossorigin="anonymous"></audio>
 
@@ -127,8 +129,8 @@
     
     <!-- Portal -->
     <a-entity id="portal-outside" 
-              position="-4 2.5 8" 
-              circles-portal="img_src:#earth_jpg; title_text:Go Outside; link_url:/w/Outside">
+              position="-5 2.5 9" 
+              circles-portal="img_src:#outside_jpg; title_text:Go Outside; link_url:/w/Outside">
             </a-entity>
     
     <!-- Buttons to open doors -->
@@ -165,7 +167,7 @@
     </a-entity>
     <a-entity   id="button_6"
                 circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.45;" 
-                position="-6.06 2.3 6.1" rotation="0 180 90" scale="0.8 0.8 0.8"
+                position="-6.06 2.3 6.05" rotation="0 180 90" scale="0.8 0.8 0.8"
                 circles-sphere-env-map="src:#skyMap">
     </a-entity>
 
@@ -196,8 +198,6 @@
               label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:Helmet;
               description:The Canadarm supported astronauts during space walks. Spacewalks can last up to 5-7 hours!;
-              title_back:Helmet;
-              description_back:The Canadarm supported astronauts during space walks. Spacewalks can last up to 5-7 hours!;
               label_text:Helmet;
               audio:#vcHelmet; 
               volume:0.6;">
@@ -212,8 +212,6 @@
               description_offset: 0.0 -0.7 0.0; desc_arrow_position: up;
               title:Camera;
               description:There are 2 IMAX cameras on the Canadarm that film and document the experience of astronauts in space.;
-              title_back:Imax Camera;
-              description_back:There are 2 IMAX cameras on the Canadarm that film and document the experience of astronauts in space.;
               label_text:Imax Camera;
               audio:#vcImaxCamera; 
               volume:0.6;">
@@ -225,8 +223,6 @@
               description_offset: 0.0 -1.0 0.0; desc_arrow_position: up;
               title:Satellite;
               description:The Canadarm was used to send satellites into orbit.;
-              title_back:Satellite;
-              description_back:The Canadarm was used to send satellites into orbit.;
               label_text:Satellite;
               audio:#vcSatellite; 
               volume:0.6;">
@@ -237,8 +233,6 @@
               label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:Toolbox;
               description:The Canadarm helped perform repairs on satellites and the International Space Station. A notable use was repairing the Hubble Space Telescope.;
-              title_back:Toolbox;
-              description_back:The Canadarm helped perform repairs on satellites and the International Space Station. A notable use was repairing the Hubble Space Telescope.;
               label_text:Toolbox;
               audio:#vcToolbox; 
               volume:0.6;">
@@ -251,8 +245,6 @@
               label_offset:0.0 1.0 0.0; arrow_position:down; descriptionLookAt:true;
               title:James Webb Space Telescope;
               description:The James Webb telescope is currently the most powerful space telescope. It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
-              title_back:James Webb Space Telescope;
-              description_back:The James Webb telescope is currently the most powerful space telescope. It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
               label_text:James Webb Telescope;
               audio:#vcJamesWebbTel; 
               volume:0.6;">
