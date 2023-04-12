@@ -27,8 +27,11 @@
         <img id="observatory_png" src="assets/models/spaceship/observatory_texture-01.png">
         <img id="telescope_jpg" src="assets/textures/telescope_screenshot.jpg">
 
-        <!-- credit: "magic" music - https://soundcloud.com/royaltyfreebackgroundmusic/sets/creative-commons-music-365 -->
+        <!-- credit: -  -->
         <audio id="outdoorSound" src="assets/sounds/outdoor_sound.mp3" preload="auto" crossorigin="anonymous"></audio>
+
+        <!-- VoiceOvers -->
+        <audio id="vcvcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- Rooms-->
         <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -115,15 +118,18 @@
       <a-entity geometry="primitive:box; width:0.5; height:1.0; depth:0.5;" material="color:white;" position="0 -0.78 -0.53" rotation="35 0 0" circles-sphere-env-map="src:#earth_lowres"></a-entity>
       <!-- text documentation: https://github.com/aframevr/aframe/blob/master/docs/components/text.md -->
       <a-entity text="value:James Webb Space Telescope; 
-                      color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" position="-1.4 0.5 0.01" ></a-entity>
+                      color:black; font:exo2bold; width:2.8; anchor:left; baseline:top; wrapCount:26;" 
+                      position="-1.4 0.5 0.01" >
+                    </a-entity>
       <a-entity text="value:The James Webb telescope is currently the most powerful space telescope.  It is a collaboration between NASA, the European Space Agency, and the Canadian Space Agency.;
-                      color:black; font:roboto; width:2.8; anchor:left; baseline:top; wrapCount:38;" position="-1.4 0.2 0.01" ></a-entity>
+                      color:black; font:roboto; width:2.8; anchor:left; baseline:top; wrapCount:38;" 
+                      position="-1.4 0.2 0.01" >
+                    </a-entity>
     </a-entity>
 
     <!-- Canadarm -->
     <a-entity id="canadarm" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#canadarm_gltf" circles-sphere-env-map="src:#earth_lowres"></a-entity>
     
-
     <!-- Portal -->
     <a-entity id="portal-inside" position="1.4 2.5 3" rotation="0 105 0" circles-portal="img_src:#observatory_png; title_text:Go Inside; link_url:/w/Orbits"></a-entity>
     <a-entity id="portal-telescope" position="41.3 6.7 -30" rotation="0 -115 0" circles-portal="img_src:#telescope_jpg; title_text:View Telescope; link_url:/w/TelescopeView"></a-entity>
