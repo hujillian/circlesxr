@@ -4,20 +4,19 @@
 
     <!-- Circles' head scripts [REQUIRED] -->
     <circles-start-scripts/>
-
+    
     <!-- add your custom scripts here -->
     <!-- <script src="/worlds/hub/scripts/hub.js"></script> -->
     <script src="js/open-doors.js"></script>
     <script src="js/start-game.js"></script>
-    <!-- <script src="js/switch-nav-mesh.js"></script> -->
-    <script src="https://unpkg.com/aframe-environment-component@1.3.2/dist/aframe-environment-component.min.js"></script>
+    <script src="js/messaging.js"></script>
   </head>
   <body>
     <!-- this is used to create our enter UI that creates a 2D overlay to capture a user gesture for sound/mic access etc. -->
     <circles-start-ui/>
 
     <!-- a-scene with 'circles-properties' component [REQUIRED] -->
-    <a-scene circles_scene_properties start-game switch-nav-mesh audio-manager>
+    <a-scene circles_scene_properties start-game audio-manager messaging>
       <a-assets>
         <script>
           import { Audio } from 'circlesxr';
@@ -43,12 +42,12 @@
         <audio id="vcJamesWebbTel" src="assets/sounds/vcJamesWebbTel.mp3" preload="auto" crossorigin="anonymous"></audio>
 
         <!-- Rooms-->
-        <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/large_files/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/large_files/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="controlRoom_gltf" src="assets/models/spaceship/controlRoom.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="departureBay_gltf" src="assets/models/spaceship/departureBay.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="diningHall_gltf" src="assets/models/spaceship/large_files/diningHall.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="engine_gltf" src="assets/models/spaceship/engine.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="lobby_gltf" src="assets/models/spaceship/large_files/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
-        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/large_files/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="lobby_gltf" src="assets/models/spaceship/lobby.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        <a-asset-item id="observatory_gltf" src="assets/models/spaceship/observatory.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingL_gltf" src="assets/models/spaceship/wingL.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="wingR_gltf" src="assets/models/spaceship/wingR.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
         <a-asset-item id="controlDesk_gltf" src="assets/models/spaceship/controldesk.gltf" response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
@@ -104,6 +103,15 @@
       <!----------------------- Audio Manager ------------------------------>
       <!-- <audio id="myAudio" src="public\assets\background_audio.mp3"></audio> -->
       <a-entity position="0 0 0" circles-sound="type:music; src:#backgroundMusic; autoplay:true; loop:true; volume:0.4; state:play;"></a-entity>
+
+
+      <!-- multiuser light -->
+      <a-entity id="light_2" position="-4.5 3 -0.86"
+                material="color:rgb(12,19,34); opacity:0.8; emissive:rgb(30,59,118); emissiveIntensity:0.0;" geometry="primitive:sphere; radius:0.3;"
+                circles-interactive-object="type:highlight;">
+        <a-entity light="type:point; color:rgb(30,59,118); intensity:5.0;"></a-entity>
+      </a-entity>
+      
 
     <!-- Rooms -->
     <a-entity id="controlRoom" position="0 0 0" rotation="0 0 0" scale="1 1 1" gltf-model="#controlRoom_gltf" circles-sphere-env-map="src:#skyMap"></a-entity>
@@ -163,7 +171,7 @@
     </a-entity>
     <a-entity   id="button_6"
                 circles-button="button_color:rgb(153, 223, 255); button_color_hover:rgb(63, 134, 166); diameter:0.45;" 
-                position="-6.06 2.3 6.05" rotation="0 180 90" scale="0.8 0.8 0.8"
+                position="-6.06 2.25 5.92" rotation="0 180 90" scale="0.8 0.8 0.8"
                 circles-sphere-env-map="src:#skyMap">
     </a-entity>
 
